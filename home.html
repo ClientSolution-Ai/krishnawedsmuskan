@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muskan &amp; Krishna |Wedding Invitation</title>
+
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description"
+    content="You are cordially invited to celebrate the wedding of Muskan & Krishna. Shubh Vivah 25th November 2026 at Sangli Resort, Dhanbad.">
+  <meta property="og:title" content="Muskan & Krishna |Wedding Invitation">
+  <meta property="og:description" content="Celebrate the union of Muskan & Krishna. Shubh Vivah 25th November 2026.">
+  <meta property="og:image" content="assets/images/couple_hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Kalam:wght@400;700&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Yatra+One&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-body">
+
+  <!-- Floating Falling Rose Petals & Golden Sparkles Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Background Decorative Rotating Mandalas -->
+  <div class="bg-mandala bg-mandala-left"></div>
+  <div class="bg-mandala bg-mandala-right"></div>
+
+
+  <!-- Floating Top Controls (Top Right Corner: Language Toggle & Music Button) -->
+  <div class="floating-music-wrapper" id="floating-music-bar">
+    <button id="floating-lang-btn" class="lang-circle-btn" title="हिंदी में देखें / View in Hindi"
+      aria-label="Toggle Language English or Hindi">
+      <span id="lang-btn-text" class="lang-btn-label">अ</span>
+    </button>
+    <button id="floating-music-btn" class="music-circle-btn" title="Play or Pause Music"
+      aria-label="Play or Pause Music">
+      <i id="music-play-pause-icon" class="fa-solid fa-play"></i>
+    </button>
+  </div>
+
+  <!-- Main Home Screen View (Divided into Left Ganpati & Right Sacred Knot on Web View) -->
+  <div id="main-scroll-app" class="main-screen-app">
+
+    <!-- Aesthetic Blurred Sacred Background Layer -->
+    <div class="home-bg-backdrop" aria-hidden="true"></div>
+    <div class="home-bg-glow-vignette" aria-hidden="true"></div>
+
+    <main class="sacred-home-container">
+
+      <!-- Left Section: Divine Lord Ganpati Image (Web View) -->
+      <section class="sacred-home-left" aria-label="Auspicious Lord Ganesha">
+        <div class="ganpati-home-wrapper">
+          <img src="assets/images/ganpati_home.png" alt="Auspicious Lord Ganesha" class="ganpati-home-img" />
+        </div>
+      </section>
+
+      <!-- Right Section: Sacred Knot Union (Groom at Top -> Bigger home_center.png -> Bride at Bottom) -->
+      <section class="sacred-home-right" aria-label="Groom, Sacred Knot, and Bride Details">
+        <div class="sacred-knot-stage">
+
+          <!-- Top Section: Bride Details -->
+          <div class="person-details-section bride-details-bottom">
+            <h1 class="calligraphy-royal-name" id="bride-name-text">Muskan</h1>
+            <p class="kinship-label" id="bride-kinship-text">Daughter of</p>
+            <p class="parents-names" id="bride-parents-text">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+          </div>
+
+          <!-- Center Section: home_center.png Image (Bigger & Grand) -->
+          <div class="home-center-wrapper">
+            <img src="assets/images/home_center.png" alt="Sacred Union Knot" class="home-center-img" />
+          </div>
+
+          <!-- Bottom Section: Groom Details -->
+
+          <div class="person-details-section groom-details-top">
+            <h1 class="calligraphy-royal-name" id="groom-name-text">Krishna Kumar</h1>
+            <p class="kinship-label" id="groom-kinship-text">Son of</p>
+            <p class="parents-names" id="groom-parents-text">Smt. Kalyani Bid &amp; Shri Sukumar Bid</p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Floating Bottom-Center Auspicious Wedding Countdown Timer (Revealed on Scroll) -->
+    <div id="home-countdown-banner" class="home-countdown-banner" aria-label="Wedding Countdown">
+      <div class="cd-banner-inner">
+        <div class="cd-banner-timer-row">
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-days">00</span>
+            <span class="cd-unit-label" id="cd-label-days">Days</span>
+          </div>
+          <span class="cd-unit-sep">:</span>
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-hours">00</span>
+            <span class="cd-unit-label" id="cd-label-hours">Hours</span>
+          </div>
+          <span class="cd-unit-sep">:</span>
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-mins">00</span>
+            <span class="cd-unit-label" id="cd-label-mins">Mins</span>
+          </div>
+          <span class="cd-unit-sep">:</span>
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-secs">00</span>
+            <span class="cd-unit-label" id="cd-label-secs">Secs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         ROYAL WEDDING CELEBRATION CARDS SECTION (HALDI, MEHNDI, SANGEET, BARAT, DINNER)
+         Smoothly revealed after the countdown on scroll
+         ======================================================================== -->
+    <section id="royal-events-section" class="royal-events-section" aria-label="Wedding Ceremonies & Events">
+
+      <!-- Section Royal Heading -->
+      <div class="events-section-header">
+        <div class="events-crest-om">
+          <span class="events-crest-symbol">𑁍</span>
+        </div>
+        <p class="events-section-subtitle" id="events-sec-subtitle">SACRED WEDDING CELEBRATIONS</p>
+        <h2 class="events-section-title" id="events-sec-title">Auspicious Ceremonies</h2>
+        <div class="events-header-divider">
+          <span class="e-line"></span>
+          <span class="e-motif">❦</span>
+          <span class="e-line"></span>
+        </div>
+      </div>
+
+
+      <!-- Carousel / Scrollable Viewport with Navigation Controls -->
+      <div class="events-carousel-stage">
+
+        <!-- Previous Card Button -->
+        <button class="events-arrow-btn arrow-prev" id="events-prev-btn" aria-label="Previous Ceremony"
+          title="Previous Ceremony">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Horizontal Scrollable Cards Track -->
+        <div class="events-cards-track" id="events-cards-track">
+
+          <!-- Card 1: Haldi Ceremony (Exact Haldi Carnival Artwork with animations) -->
+          <article class="event-card theme-haldi active" id="event-card-haldi" data-event-id="haldi" data-index="0"
+            tabindex="0">
+            <div class="event-card-inner">
+              <div class="event-card-decor-corner corner-tl"></div>
+              <div class="event-card-decor-corner corner-tr"></div>
+              <div class="event-card-decor-corner corner-bl"></div>
+              <div class="event-card-decor-corner corner-br"></div>
+
+              <!-- Animated Image Poster Frame -->
+              <div class="event-card-media-banner">
+                <img src="assets/images/haldi_carnival.jpg"
+                  alt="Haldi Carnival - A Splash of Love, Laughter &amp; Haldi" class="event-card-img"
+                  loading="eager" />
+                <div class="media-glow-aura"></div>
+                <div class="media-floating-sparkles">
+                  <span class="sparkle-dot sp-1">✨</span>
+                  <span class="sparkle-dot sp-2">🌼</span>
+                  <span class="sparkle-dot sp-3">✨</span>
+                </div>
+                <span class="event-card-badge" id="card-badge-haldi">CEREMONY 01</span>
+                <div class="event-icon-circle">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="event-card-content">
+                <h3 class="event-card-title" id="card-title-haldi">Haldi Carnival</h3>
+                <p class="event-card-tagline" id="card-tagline-haldi">A Splash of Love, Laughter &amp; Haldi</p>
+
+                <div class="event-card-divider"></div>
+
+                <div class="event-details-grid">
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Date</span>
+                      <span class="detail-val" id="card-date-haldi">Tuesday, 24th November 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Time</span>
+                      <span class="detail-val" id="card-time-haldi">10:00 AM - 01:00 PM</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Venue</span>
+                      <span class="detail-val" id="card-venue-haldi">Sangli Resort Lawns</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-vest-patches"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Attire</span>
+                      <span class="detail-val attire-val" id="card-dress-haldi">
+                        <span class="color-dot dot-yellow"></span> Festive Yellow &amp; Pastels
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="event-card-desc" id="card-desc-haldi">
+                  An auspicious morning bathed in golden turmeric pastes, fragrant marigold showers, and joyful family
+                  banter.
+                </p>
+
+                <div class="event-card-actions">
+                  <a href="https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand" target="_blank"
+                    rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-haldi">
+                    <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
+                  </a>
+                  <button class="card-action-btn btn-calendar" data-event-id="haldi" id="btn-cal-haldi">
+                    <i class="fa-regular fa-calendar-plus"></i> <span>Add to Calendar</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Card 2: Royal Sangeet Night -->
+          <article class="event-card theme-sangeet" id="event-card-sangeet" data-event-id="sangeet" data-index="1"
+            tabindex="0">
+            <div class="event-card-inner">
+              <div class="event-card-decor-corner corner-tl"></div>
+              <div class="event-card-decor-corner corner-tr"></div>
+              <div class="event-card-decor-corner corner-bl"></div>
+              <div class="event-card-decor-corner corner-br"></div>
+
+              <!-- Animated Image Poster Frame -->
+              <div class="event-card-media-banner">
+                <img src="assets/images/sangeet_card.jpg" alt="Sangeet Night" class="event-card-img" loading="lazy" />
+                <div class="media-glow-aura"></div>
+                <div class="media-floating-sparkles">
+                  <span class="sparkle-dot sp-1">✨</span>
+                  <span class="sparkle-dot sp-2">🎶</span>
+                  <span class="sparkle-dot sp-3">✨</span>
+                </div>
+                <span class="event-card-badge" id="card-badge-sangeet">CEREMONY 02</span>
+                <div class="event-icon-circle">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="event-card-content">
+                <h3 class="event-card-title" id="card-title-sangeet">Sangeet Night</h3>
+                <p class="event-card-tagline" id="card-tagline-sangeet">A Symphony of Beats, Glitz &amp; Grand
+                  Performances</p>
+
+                <div class="event-card-divider"></div>
+
+                <div class="event-details-grid">
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Date</span>
+                      <span class="detail-val" id="card-date-sangeet">Tuesday, 24th November 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Time</span>
+                      <span class="detail-val" id="card-time-sangeet">08:00 PM Onwards</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Venue</span>
+                      <span class="detail-val" id="card-venue-sangeet">Grand Ballroom, Sangli Resort</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-vest-patches"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Attire</span>
+                      <span class="detail-val attire-val" id="card-dress-sangeet">
+                        <span class="color-dot dot-magenta"></span> Glamorous Indo-Western
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="event-card-desc" id="card-desc-sangeet">
+                  An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, and
+                  gourmet dining.
+                </p>
+
+                <div class="event-card-actions">
+                  <a href="https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand" target="_blank"
+                    rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-sangeet">
+                    <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
+                  </a>
+                  <button class="card-action-btn btn-calendar" data-event-id="sangeet" id="btn-cal-sangeet">
+                    <i class="fa-regular fa-calendar-plus"></i> <span>Add to Calendar</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Card 3: Barat & Shubh Vivah -->
+          <article class="event-card theme-barat" id="event-card-barat" data-event-id="barat" data-index="2"
+            tabindex="0">
+            <div class="event-card-inner">
+              <div class="event-card-decor-corner corner-tl"></div>
+              <div class="event-card-decor-corner corner-tr"></div>
+              <div class="event-card-decor-corner corner-bl"></div>
+              <div class="event-card-decor-corner corner-br"></div>
+
+              <!-- Animated Image Poster Frame -->
+              <div class="event-card-media-banner">
+                <img src="assets/images/mandap_ceremony.jpg" alt="Shubh Vivah" class="event-card-img" loading="lazy" />
+                <div class="media-glow-aura"></div>
+                <div class="media-floating-sparkles">
+                  <span class="sparkle-dot sp-1">✨</span>
+                  <span class="sparkle-dot sp-2">👑</span>
+                  <span class="sparkle-dot sp-3">✨</span>
+                </div>
+                <span class="event-card-badge" id="card-badge-barat">CEREMONY 03</span>
+                <div class="event-icon-circle">
+                  <i class="fa-solid fa-horse"></i>
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="event-card-content">
+                <h3 class="event-card-title" id="card-title-barat">Shubh Vivah</h3>
+                <p class="event-card-tagline" id="card-tagline-barat">The Wedding &amp; Sacred 7 Pheras</p>
+
+                <div class="event-card-divider"></div>
+
+                <div class="event-details-grid">
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Date</span>
+                      <span class="detail-val" id="card-date-barat">Wednesday, 25th November 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Time</span>
+                      <span class="detail-val" id="card-time-barat">Varmala 09:30 PM | Pheras 02:30
+                        AM</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Venue</span>
+                      <span class="detail-val" id="card-venue-barat">Sangli Resort Mandap, Dhanbad</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-vest-patches"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Attire </span>
+                      <span class="detail-val attire-val" id="card-dress-barat">
+                        <span class="color-dot dot-crimson"></span>Traditional Crimson &amp; Gold
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="event-card-desc" id="card-desc-barat">
+                  The Baraat procession, garland exchange under floral showers, and the eternal 7 vows around the
+                  holy Agni.
+                </p>
+
+                <div class="event-card-actions">
+                  <a href="https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand" target="_blank"
+                    rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-barat">
+                    <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
+                  </a>
+                  <button class="card-action-btn btn-calendar" data-event-id="barat" id="btn-cal-barat">
+                    <i class="fa-regular fa-calendar-plus"></i> <span>Add to Calendar</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Card 4: Grand DINNER & Gala -->
+          <article class="event-card theme-DINNER" id="event-card-DINNER" data-event-id="DINNER" data-index="3"
+            tabindex="0">
+            <div class="event-card-inner">
+              <div class="event-card-decor-corner corner-tl"></div>
+              <div class="event-card-decor-corner corner-tr"></div>
+              <div class="event-card-decor-corner corner-bl"></div>
+              <div class="event-card-decor-corner corner-br"></div>
+
+              <!-- Animated Image Poster Frame -->
+              <div class="event-card-media-banner">
+                <img src="assets/images/reception_chandelier.jpg" alt="DINNER" class="event-card-img" loading="lazy" />
+                <div class="media-glow-aura"></div>
+                <div class="media-floating-sparkles">
+                  <span class="sparkle-dot sp-1">✨</span>
+                  <span class="sparkle-dot sp-2">🥂</span>
+                  <span class="sparkle-dot sp-3">✨</span>
+                </div>
+                <span class="event-card-badge" id="card-badge-DINNER">CEREMONY 04</span>
+                <div class="event-icon-circle">
+                  <i class="fa-solid fa-crown"></i>
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="event-card-content">
+                <h3 class="event-card-title" id="card-title-DINNER">DINNER</h3>
+                <p class="event-card-tagline" id="card-tagline-DINNER">An Evening of Feast &amp; Blessings</p>
+
+                <div class="event-card-divider"></div>
+
+                <div class="event-details-grid">
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Date</span>
+                      <span class="detail-val" id="card-date-DINNER">Wednesday, 25th November 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Time</span>
+                      <span class="detail-val" id="card-time-DINNER">07:30 PM Onwards</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Venue</span>
+                      <span class="detail-val" id="card-venue-DINNER">Sangli Resort Banquet, Dhanbad</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="event-card-desc" id="card-desc-DINNER">
+                  A majestic dinner celebrating the newlyweds with live classical melodies and grand Indian
+                  hospitality.
+                </p>
+
+                <div class="event-card-actions">
+                  <a href="https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand" target="_blank"
+                    rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-DINNER">
+                    <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
+                  </a>
+                  <button class="card-action-btn btn-calendar" data-event-id="DINNER" id="btn-cal-DINNER">
+                    <i class="fa-regular fa-calendar-plus"></i> <span>Add to Calendar</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Next Card Button -->
+        <button class="events-arrow-btn arrow-next" id="events-next-btn" aria-label="Next Ceremony"
+          title="Next Ceremony">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+      <!-- Bottom Pagination Dots Indicator -->
+      <div class="events-dots-indicator" id="events-dots-indicator">
+        <button class="event-dot active" data-index="0" aria-label="Haldi Ceremony"></button>
+        <button class="event-dot" data-index="1" aria-label="Sangeet Night"></button>
+        <button class="event-dot" data-index="2" aria-label="Barat & Wedding"></button>
+        <button class="event-dot" data-index="3" aria-label="Grand DINNER"></button>
+      </div>
+
+      <!-- ========================================================================
+           DEDICATED FAMILY BLESSINGS SECTION (॥ पारिवारिक शुभाशीर्वाद ॥)
+           ======================================================================== -->
+      <div id="family-blessings-section" class="family-blessings-section" aria-label="Family Blessings">
+        <div class="family-blessings-container">
+
+          <!-- Header -->
+          <div class="fb-header">
+            <div class="fb-header-ornament">
+              <span class="fb-line"></span>
+              <p class="fb-sanskrit-tag" id="fb-sanskrit-tag">॥ पारिवारिक शुभाशीर्वाद ॥</p>
+              <span class="fb-line"></span>
+            </div>
+            <h2 class="fb-title" id="fb-title">FAMILY BLESSINGS</h2>
+            <p class="fb-subtitle" id="fb-subtitle">With the Love &amp; Blessings of Our Families</p>
+            <div class="fb-namaste-icon-wrap">
+              <span class="fb-namaste-icon">🙏</span>
+            </div>
+          </div>
+
+          <!-- Invitation Quote Card -->
+          <div class="fb-quote-card">
+            <div class="fb-quote-decor corner-tl"></div>
+            <div class="fb-quote-decor corner-tr"></div>
+            <div class="fb-quote-decor corner-bl"></div>
+            <div class="fb-quote-decor corner-br"></div>
+            <p class="fb-quote-text" id="fb-quote-text">
+              “We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved
+              daughter and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred
+              journey of love and togetherness.”
+            </p>
+          </div>
+
+          <!-- Family Tribute Cards (Centered Prasad Family) -->
+          <div class="fb-families-grid fb-single-family">
+
+            <!-- Bride's Family Column (Centered) -->
+            <div class="fb-family-card bride-family-card animated-prasad-card">
+              <div class="fb-card-decor corner-tl"></div>
+              <div class="fb-card-decor corner-tr"></div>
+              <div class="fb-card-decor corner-bl"></div>
+              <div class="fb-card-decor corner-br"></div>
+              <div class="fb-card-glow-aura"></div>
+
+              <h3 class="fb-family-heading" id="fb-bride-family-title">THE PRASAD FAMILY</h3>
+              <span class="fb-family-subheading" id="fb-bride-family-badge">BRIDE'S FAMILY</span>
+
+              <!-- Grandparents Box -->
+              <div class="fb-ancestor-box">
+                <span class="fb-ancestor-label" id="fb-bride-ancestor-label">With the pious blessings of</span>
+                <h4 class="fb-ancestor-names" id="fb-bride-ancestors">Late Kamini Devi &amp; Late Sheo Nandan Prasad
+                </h4>
+              </div>
+
+              <!-- Parents Box -->
+              <div class="fb-parents-box">
+                <span class="fb-parents-label" id="fb-bride-parents-label">PARENTS</span>
+                <p class="fb-parents-names" id="fb-bride-parents">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Gratitude / दर्शनाभिलाषी Strip -->
+          <div class="fb-gratitude-strip">
+            <span class="fb-gratitude-icon">𑁍</span>
+            <p class="fb-gratitude-text">
+              <span class="fb-gratitude-label" id="fb-gratitude-label">दर्शनाभिलाषी:</span>
+              <span class="fb-gratitude-val" id="fb-gratitude-val">Entire Prasad Family</span>
+            </p>
+            <span class="fb-gratitude-icon">𑁍</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+  </div>
+
+  <!-- Royal Media / Photo Moments Modal -->
+  <div id="royal-media-modal" class="royal-media-modal" aria-hidden="true" role="dialog"
+    aria-labelledby="media-modal-heading">
+    <div class="media-modal-backdrop" id="media-modal-backdrop"></div>
+    <div class="media-modal-card">
+      <div class="media-modal-header">
+        <div class="media-modal-title-wrap">
+          <i class="fa-solid fa-camera-retro"></i>
+          <h2 class="media-modal-title" id="media-modal-heading">Royal Moments & Gallery</h2>
+        </div>
+        <button class="media-modal-close-btn" id="media-modal-close-btn" title="Close / बंद करें"
+          aria-label="Close Gallery">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="media-modal-body">
+        <div class="media-gallery-grid" id="media-gallery-container">
+          <!-- Dynamically populated from wedding-config.js or fallback -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="assets/audio/AUD-20260928-WA0008.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script src="wedding-config.js"></script>
+  <script src="home.js"></script>
+</body>
+
+</html>
