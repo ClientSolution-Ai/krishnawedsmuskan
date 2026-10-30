@@ -472,12 +472,12 @@ function initRSVPAndWishes() {
   // Default Initial Wishes
   const defaultWishes = [
     {
-      name: "Smt. Kalyani Bid & Shri Sukumar Bid",
+      name: "Mrs. Kalyani Bid & Mr. Sukumar Bid",
       message: "May God shower infinite blessings, joyous health, and eternal companionship on Krishna & Muskan.",
       time: "Family Blessing"
     },
     {
-      name: "Smt. Annu & Shri Uday Shankar Prasad",
+      name: "Mrs. Annu Prasad & Mr. Uday Shankar Prasad",
       message: "Dearest Muskan & Krishna, walking together in love and harmony, may your life be filled with laughter and prosperity.",
       time: "Family Blessing"
     },

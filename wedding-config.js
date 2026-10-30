@@ -18,12 +18,12 @@ const WEDDING_CONFIG = {
       bride: {
         name: "Muskan",
         kinship: "Daughter of",
-        parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
+        parents: "Mrs. Annu Prasad & Mr. Uday Shankar Prasad"
       },
       groom: {
         name: "Krishna",
         kinship: "Son of",
-        parents: "Smt. Kalyani Bid & Shri Sukumar Bid"
+        parents: "Mrs. Kalyani Bid & Mr. Sukumar Bid"
       },
 
       countdown: {
@@ -47,24 +47,35 @@ const WEDDING_CONFIG = {
             tagline: "Ubtan, Laughter & Golden Sunshine",
             date: "Tuesday, 24th November 2026",
             time: "10:00 AM - 01:00 PM",
-            venue: "Sangli Resort Lawns",
+            venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
             dressCode: "Festive Yellow",
             description: "An auspicious morning bathed in golden turmeric pastes, fragrant marigold showers, and joyful family banter."
           },
           {
-            id: "sangeet",
+            id: "mehendi",
             badge: "CEREMONY 02",
+            name: "Mehendi & High Tea",
+            tagline: "Intricate Henna, Folk Rhythms & Royal Flavors",
+            date: "Tuesday, 24th November 2026",
+            time: "04:00 PM - 07:30 PM",
+            venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+            dressCode: "Emerald Green & Floral",
+            description: "Adorning hands with exquisite fragrant henna motifs, live folk rhythms, and lavish Rajasthani high-tea delicacies."
+          },
+          {
+            id: "sangeet",
+            badge: "CEREMONY 03",
             name: "Sangeet Night",
             tagline: "A Symphony of Beats, Glitz & Grand Performances",
             date: "Tuesday, 24th November 2026",
             time: "08:00 PM Onwards",
-            venue: "Sangli Resort Lawns",
+            venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
             dressCode: "Glamorous Indo-Western",
             description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, and gourmet dining."
           },
           {
             id: "barat",
-            badge: "CEREMONY 03",
+            badge: "CEREMONY 04",
             name: "Baraat Agaman & Shubh Vivah",
             tagline: "The Wedding & Sacred 7 Pheras",
             date: "Wednesday, 25th November 2026",
@@ -75,7 +86,7 @@ const WEDDING_CONFIG = {
           },
           {
             id: "DINNER",
-            badge: "CEREMONY 04",
+            badge: "CEREMONY 05",
             name: "DINNER",
             tagline: "An Evening of Feast & Blessings",
             date: "Wednesday, 25th November 2026",
@@ -89,17 +100,17 @@ const WEDDING_CONFIG = {
         sanskritTag: "॥ पारिवारिक शुभाशीर्वाद ॥",
         title: "FAMILY BLESSINGS",
         subtitle: "With the Love & Blessings of Our Families",
-        quote: "“We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved daughter and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred journey of love and togetherness.”",
+        quote: "“We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved son and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred journey of love and togetherness.”",
         brideFamily: {
-          title: "THE PRASAD FAMILY",
-          badge: "BRIDE'S FAMILY",
-          ancestorLabel: "With the pious blessings of",
-          ancestors: "Late Kamini Devi & Late Sheo Nandan Prasad",
+          title: "THE BID FAMILY",
+          badge: "GROOM'S FAMILY",
+          ancestorLabel: "",
+          ancestors: "",
           parentsLabel: "PARENTS",
-          parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
+          parents: "Mrs. Kalyani Bid & Mr. Sukumar Bid"
         },
         gratitudeLabel: "दर्शनाभिलाषी:",
-        gratitudeVal: "Entire Prasad Family"
+        gratitudeVal: "Entire Bid Family"
       }
     },
 
@@ -140,24 +151,35 @@ const WEDDING_CONFIG = {
             tagline: "उबटन, हंसी-उल्लास एवं पीत आभा",
             date: "मंगलवार, २४ नवंबर २०२६",
             time: "प्रातः १०:०० बजे से अपराह्न ०१:०० बजे तक",
-            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            venue: "आदित्य बैंक्वेट हॉल, हीरक रोड, धनबाद",
             dressCode: "पीला एवं सूर्यमुखी परिधान",
             description: "पवित्र हल्दी, गेंदे के पुष्पों की वर्षा और परिजनों के स्नेह के साथ मंगलमय हल्दी का उत्सव।"
           },
           {
-            id: "sangeet",
+            id: "mehendi",
             badge: "कार्यक्रम ०२",
+            name: "मेहंदी एवं हाई टी",
+            tagline: "सुगंधित हिना, लोक संगीत एवं उल्लास",
+            date: "मंगलवार, २४ नवंबर २०२६",
+            time: "अपराह्न ०४:०० बजे से सायं ०७:३० बजे तक",
+            venue: "आदित्य बैंक्वेट हॉल, हीरक रोड, धनबाद",
+            dressCode: "हरा एवं फ्लोरल परिधान",
+            description: "हाथों में रचेगी सगुन की मेहंदी, पारंपरिक लोकगीतों की गूंज और स्वादिष्ट व्यंजनों का आनंद।"
+          },
+          {
+            id: "sangeet",
+            badge: "कार्यक्रम ०३",
             name: "शाही संगीत निशा",
             tagline: "सुर, ताल और नृत्य का भव्य संगम",
             date: "मंगलवार, २४ नवंबर २०२६",
             time: "रात्रि ०८:०० बजे से",
-            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            venue: "आदित्य बैंक्वेट हॉल, हीरक रोड, धनबाद",
             dressCode: "इंडो-वेस्टर्न एवं चमकीले परिधान",
             description: "पारिवारिक मनमोहक नृत्य प्रस्तुतियां, डीजे की धुनें और भव्य शाही रात्रिभोज।"
           },
           {
             id: "barat",
-            badge: "कार्यक्रम ०३",
+            badge: "कार्यक्रम ०४",
             name: "बारात एवं शुभ विवाह",
             tagline: "वरयात्रा, वरमाला एवं पवित्र सप्तपदी",
             date: "बुधवार, २५ नवंबर २०२६",
@@ -168,7 +190,7 @@ const WEDDING_CONFIG = {
           },
           {
             id: "DINNER",
-            badge: "कार्यक्रम ०४",
+            badge: "कार्यक्रम ०५",
             name: "भव्य प्रीतिभोज एवं डिनर",
             tagline: "स्नेह मिलन, आशीर्वाद एवं उत्सव",
             date: "बुधवार, २५ नवंबर २०२६",
@@ -182,17 +204,17 @@ const WEDDING_CONFIG = {
         sanskritTag: "॥ पारिवारिक शुभाशीर्वाद ॥",
         title: "पारिवारिक शुभाशीर्वाद",
         subtitle: "समस्त परिवार के स्नेह एवं मंगल आशीर्वाद सहित",
-        quote: "“हम आप सभी को सपरिवार अपने प्रिय बच्चों के मांगलिक वैवाहिक उत्सव में सादर आमंत्रित करते हैं। वर-वधू को अपने स्नेहिल आशीष से अनुगृहीत कर इस पावन बेला की शोभा बढ़ाएं।”",
+        quote: "“हम आप सभी को सपरिवार अपने प्रिय सुपुत्र के मांगलिक वैवाहिक उत्सव में सादर आमंत्रित करते हैं। वर-वधू को अपने स्नेहिल आशीष से अनुगृहीत कर इस पावन बेला की शोभा बढ़ाएं।”",
         brideFamily: {
-          title: "प्रसाद परिवार",
-          badge: "वधू पक्ष",
-          ancestorLabel: "परम पूज्य पूर्वजों के पावन आशीर्वाद से",
-          ancestors: "स्व. कामिनी देवी एवं स्व. शिव नंदन प्रसाद",
+          title: "बिद परिवार",
+          badge: "वर पक्ष",
+          ancestorLabel: "",
+          ancestors: "",
           parentsLabel: "माता-पिता",
-          parents: "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
+          parents: "श्रीमती कल्याणी बिद एवं श्री सुकुमार बिद"
         },
         gratitudeLabel: "दर्शनाभिलाषी:",
-        gratitudeVal: "समस्त प्रसाद परिवार"
+        gratitudeVal: "समस्त बिद परिवार"
       }
     }
   },
@@ -204,8 +226,8 @@ const WEDDING_CONFIG = {
       lastName: "Kumar",
       fullName: "Krishna Kumar",
       title: " Groom",
-      parents: "Son of Smt. Kalyani Bid & Shri Sukumar Bid",
-      grandparents: "Grandson of Late Smt. Kamala & Late Shri Govind Singhania",
+      parents: "Son of Mrs. Kalyani Bid & Mr. Sukumar Bid",
+      grandparents: "Grandson of Late Mrs. Kamala & Late Mr. Govind Singhania",
       bio: "An architect with a passion for heritage design and classical music, Krishna brings warmth, creativity, and steadfast love to every moment.",
       photo: "assets/images/groom_portrait.jpg",
       instagram: "krishna_singhania"
@@ -215,7 +237,7 @@ const WEDDING_CONFIG = {
       lastName: "Muskan",
       fullName: "Muskan Kapoor",
       title: " Bride",
-      parents: "Daughter of Smt. ANNU PRASAD & Shri UDAY SHANKAR PRASAD ",
+      parents: "Daughter of Mrs. ANNU PRASAD & Mr. UDAY SHANKAR PRASAD ",
       grandparents: "Granddaughter of LATE KAMINI DEVI & Late SHEO NANDAN PRASAD",
       bio: "An artistic soul and classical dancer with a radiant smile, Muskan turns every ordinary day into an extraordinary celebration of joy and grace.",
       photo: "assets/images/bride_portrait.jpg",
@@ -275,38 +297,38 @@ const WEDDING_CONFIG = {
       tagline: "Ubtan, Laughter & Golden Glow",
       date: "Tuesday, 24th December 2026",
       time: "10:00 AM - 01:00 PM",
-      venue: "Sangli Resort Lawns",
-      address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
+      venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+      address: "Aditya Banquet Hall, Hirak Road, Dhanbad",
       dressCode: "Festive Yellow & Sunshine Pastels",
       description: "An auspicious morning bathed in golden turmeric pastes, marigold showers, fragrant rosewater, and joyful family banter.",
       icon: "sun",
       themeColor: "#E5A93B",
-      googleMapsUrl: "https://maps.google.com/?q=The+Oberoi+Udaivilas+Udaipur",
+      googleMapsUrl: "https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad",
       calendarData: {
         title: "Haldi Ceremony - Muskan & Krishna Wedding",
         start: "20261124T100000",
         end: "20261124T130000",
-        location: "Sangli Resort Lawns"
+        location: "Aditya Banquet Hall, Hirak Road, Dhanbad"
       }
     },
     {
       id: "mehendi",
       name: "Mehendi & High Tea",
       tagline: "Intricate Henna, Folk Rhythms & Royal Flavors",
-      date: "Monday, 24th December 2026",
+      date: "Tuesday, 24th November 2026",
       time: "04:00 PM - 07:30 PM",
-      venue: "Sangli Resort Courtyard",
-      address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
+      venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+      address: "Aditya Banquet Hall, Hirak Road, Dhanbad",
       dressCode: "Emerald Green, Mint & Floral Attire",
       description: "Adorning hands with exquisite fragrant henna motifs, live folk musicians, bangles stall, and lavish Rajasthani high-tea delicacies.",
       icon: "flower",
       themeColor: "#2D7F5E",
-      googleMapsUrl: "https://maps.google.com/?q=The+Oberoi+Udaivilas+Udaipur",
+      googleMapsUrl: "https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad",
       calendarData: {
         title: "Mehendi Ceremony - Muskan & Krishna Wedding",
-        start: "2026112411T160000",
+        start: "20261124T160000",
         end: "20261124T193000",
-        location: "Sangli Resort Courtyard"
+        location: "Aditya Banquet Hall, Hirak Road, Dhanbad"
       }
     },
     {
@@ -315,18 +337,18 @@ const WEDDING_CONFIG = {
       tagline: "A Symphony of Beats, Glitz & Grand Performances",
       date: "Tuesday, 24th November 2026",
       time: "08:00 PM Onwards",
-      venue: "Grand Ballroom, Sangli Resort",
-      address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
+      venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+      address: "Aditya Banquet Hall, Hirak Road, Dhanbad",
       dressCode: "Glamorous Indowestern & Sparkly Lehengas",
       description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, signature royal cocktails, and gourmet dining.",
       icon: "music",
       themeColor: "#8B2671",
-      googleMapsUrl: "https://maps.google.com/?q=The+Oberoi+Udaivilas+Udaipur",
+      googleMapsUrl: "https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad",
       calendarData: {
         title: "Royal Sangeet - Muskan & Krishna Wedding",
         start: "20261124T200000",
-        end: "20261124T010000",
-        location: "Grand Ballroom, Sangli Resort"
+        end: "20261125T010000",
+        location: "Aditya Banquet Hall, Hirak Road, Dhanbad"
       }
     },
     {
@@ -443,16 +465,16 @@ const WEDDING_CONFIG = {
     groomSide: {
       familyName: "The Singhania Family",
       title: "Groom's Family",
-      elders: "With the loving blessings of Late Smt. Kamala & Late Shri Govind Singhania",
-      parents: "Smt. Kalyani Bid & Shri Sukumar Bid",
+      elders: "With the loving blessings of Late Mrs. Kamala & Late Mr. Govind Singhania",
+      parents: "Mrs. Kalyani Bid & Mr. Sukumar Bid",
       siblings: "Rohan & Meera Singhania (Brother & Sister-in-law)",
       relatives: "All near and dear members of the Singhania & Verma families"
     },
     brideSide: {
       familyName: "The Kapoor Family",
       title: "Bride's Family",
-      elders: "With the pious blessings of Smt. Shakuntala & Late Shri Harish Kapoor",
-      parents: "Smt. Vandana & Shri Mahendra Kapoor",
+      elders: "With the pious blessings of Mrs. Shakuntala & Late Mr. Harish Kapoor",
+      parents: "Mrs. Vandana & Mr. Mahendra Kapoor",
       siblings: "Kabir Kapoor (Brother)",
       relatives: "All near and dear members of the Kapoor & Malhotra families"
     },

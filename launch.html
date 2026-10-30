@@ -220,37 +220,46 @@
 
     <main class="sacred-home-container">
 
-      <!-- Left Section: Divine Lord Ganpati Image (Web View) -->
-      <section class="sacred-home-left" aria-label="Auspicious Lord Ganesha">
-        <div class="ganpati-home-wrapper">
-          <img src="assets/images/ganpati_home.png" alt="Auspicious Lord Ganesha" class="ganpati-home-img" />
+
+      <!-- Stage 2 (After Agni on Scroll): Muskan & Krishna Couple Photo -->
+      <section class="sacred-home-left couple-photo-stage" id="couple-photo-stage" aria-label="Muskan &amp; Krishna">
+        <div class="couple-photo-wrapper">
+          <img src="assets/images/couple_entrance.jpg" alt="Muskan &amp; Krishna" class="couple-photo-img" />
         </div>
       </section>
 
-      <!-- Right Section: Sacred Knot Union (Groom at Top -> Bigger home_center.png -> Bride at Bottom) -->
-      <section class="sacred-home-right" aria-label="Groom, Sacred Knot, and Bride Details">
+      <!-- Stage 3 (After Couple Photo on Scroll): Bride, Royal Monogram, Groom Details -->
+      <section class="sacred-home-right names-union-stage" id="names-union-stage" aria-label="Groom, Royal Monogram, and Bride Details">
         <div class="sacred-knot-stage">
 
           <!-- Top Section: Bride Details -->
           <div class="person-details-section bride-details-bottom">
-            <h1 class="calligraphy-royal-name" id="bride-name-text"> Muskan</h1>
+            <h1 class="calligraphy-royal-name" id="bride-name-text">Muskan</h1>
             <p class="kinship-label" id="bride-kinship-text">Daughter of</p>
-            <p class="parents-names" id="bride-parents-text">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+            <p class="parents-names" id="bride-parents-text">Mrs. Annu Prasad &amp; Mr. Uday Shankar Prasad</p>
           </div>
 
-
-          <!-- Center Section: home_center.png Image (Bigger & Grand) -->
+          <!-- Center Section: Muskan & Krishna Royal Monogram Emblem -->
           <div class="home-center-wrapper">
-            <img src="assets/images/home_center.png" alt="Sacred Union Knot" class="home-center-img" />
+            <img src="assets/images/home_center.png?v=3" alt="Muskan &amp; Krishna Royal Monogram" class="home-center-img" />
           </div>
 
           <!-- Bottom Section: Groom Details -->
           <div class="person-details-section groom-details-top">
             <h1 class="calligraphy-royal-name" id="groom-name-text">Krishna Kumar</h1>
             <p class="kinship-label" id="groom-kinship-text">Son of</p>
-            <p class="parents-names" id="groom-parents-text">Smt. Kalyani Bid &amp; Shri Sukumar Bid</p>
+            <p class="parents-names" id="groom-parents-text">Mrs. Kalyani Bid &amp; Mr. Sukumar Bid</p>
           </div>
 
+        </div>
+      </section>
+
+      <!-- Stage 4 (Centered - Appears After Names): Divine Lord Ganesha -->
+      <section class="divine-ganpati-stage" id="divine-ganpati-stage" aria-label="Auspicious Lord Ganesha">
+        <div class="divine-ganpati-inner">
+          <div class="divine-ganpati-wrapper">
+            <img src="assets/images/ganpati_home.png?v=6" alt="Auspicious Lord Ganesha" class="divine-ganpati-img" />
+          </div>
         </div>
       </section>
 
@@ -370,7 +379,7 @@
                     <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="detail-info">
                       <span class="detail-label">Venue</span>
-                      <span class="detail-val" id="card-venue-haldi">Sangli Resort Lawns</span>
+                      <span class="detail-val" id="card-venue-haldi">Aditya Banquet Hall, Hirak Road, Dhanbad</span>
                     </div>
                   </div>
 
@@ -391,7 +400,7 @@
                 </p>
 
                 <div class="event-card-actions">
-                  <a href="https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand" target="_blank"
+                  <a href="https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad" target="_blank"
                     rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-haldi">
                     <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
                   </a>
@@ -404,8 +413,93 @@
             </div>
           </article>
 
-          <!-- Card 2: Royal Sangeet Night -->
-          <article class="event-card theme-sangeet" id="event-card-sangeet" data-event-id="sangeet" data-index="1"
+          <!-- Card 2: Royal Mehendi Ceremony -->
+          <article class="event-card theme-mehendi" id="event-card-mehendi" data-event-id="mehendi" data-index="1"
+            tabindex="0">
+            <div class="event-card-inner">
+              <div class="event-card-decor-corner corner-tl"></div>
+              <div class="event-card-decor-corner corner-tr"></div>
+              <div class="event-card-decor-corner corner-bl"></div>
+              <div class="event-card-decor-corner corner-br"></div>
+
+              <!-- Animated Image Poster Frame -->
+              <div class="event-card-media-banner">
+                <img src="assets/images/royal_mehndi.jpg" alt="Mehendi &amp; High Tea" class="event-card-img" loading="lazy" />
+                <div class="media-glow-aura"></div>
+                <div class="media-floating-sparkles">
+                  <span class="sparkle-dot sp-1">✨</span>
+                  <span class="sparkle-dot sp-2">🌿</span>
+                  <span class="sparkle-dot sp-3">✨</span>
+                </div>
+                <span class="event-card-badge" id="card-badge-mehendi">CEREMONY 02</span>
+                <div class="event-icon-circle">
+                  <i class="fa-solid fa-spa"></i>
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="event-card-content">
+                <h3 class="event-card-title" id="card-title-mehendi">Mehendi &amp; High Tea</h3>
+                <p class="event-card-tagline" id="card-tagline-mehendi">Intricate Henna, Folk Rhythms &amp; Royal Flavors</p>
+
+                <div class="event-card-divider"></div>
+
+                <div class="event-details-grid">
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Date</span>
+                      <span class="detail-val" id="card-date-mehendi">Tuesday, 24th November 2026</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Time</span>
+                      <span class="detail-val" id="card-time-mehendi">04:00 PM - 07:30 PM</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Venue</span>
+                      <span class="detail-val" id="card-venue-mehendi">Aditya Banquet Hall, Hirak Road, Dhanbad</span>
+                    </div>
+                  </div>
+
+                  <div class="event-detail-item">
+                    <div class="detail-icon"><i class="fa-solid fa-vest-patches"></i></div>
+                    <div class="detail-info">
+                      <span class="detail-label">Attire</span>
+                      <span class="detail-val attire-val" id="card-dress-mehendi">
+                        <span class="color-dot dot-green"></span> Emerald Green &amp; Floral
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="event-card-desc" id="card-desc-mehendi">
+                  Adorning hands with exquisite fragrant henna motifs, live folk rhythms, and lavish Rajasthani high-tea delicacies.
+                </p>
+
+                <div class="event-card-actions">
+                  <a href="https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad" target="_blank"
+                    rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-mehendi">
+                    <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
+                  </a>
+                  <button class="card-action-btn btn-calendar" data-event-id="mehendi" id="btn-cal-mehendi">
+                    <i class="fa-regular fa-calendar-plus"></i> <span>Add to Calendar</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Card 3: Royal Sangeet Night -->
+          <article class="event-card theme-sangeet" id="event-card-sangeet" data-event-id="sangeet" data-index="2"
             tabindex="0">
             <div class="event-card-inner">
               <div class="event-card-decor-corner corner-tl"></div>
@@ -422,7 +516,7 @@
                   <span class="sparkle-dot sp-2">🎶</span>
                   <span class="sparkle-dot sp-3">✨</span>
                 </div>
-                <span class="event-card-badge" id="card-badge-sangeet">CEREMONY 02</span>
+                <span class="event-card-badge" id="card-badge-sangeet">CEREMONY 03</span>
                 <div class="event-icon-circle">
                   <i class="fa-solid fa-music"></i>
                 </div>
@@ -457,7 +551,7 @@
                     <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="detail-info">
                       <span class="detail-label">Venue</span>
-                      <span class="detail-val" id="card-venue-sangeet">Grand Ballroom, Sangli Resort</span>
+                      <span class="detail-val" id="card-venue-sangeet">Aditya Banquet Hall, Hirak Road, Dhanbad</span>
                     </div>
                   </div>
 
@@ -478,7 +572,7 @@
                 </p>
 
                 <div class="event-card-actions">
-                  <a href="https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand" target="_blank"
+                  <a href="https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad" target="_blank"
                     rel="noopener noreferrer" class="card-action-btn btn-map" id="btn-map-sangeet">
                     <i class="fa-solid fa-diamond-turn-right"></i> <span>View Venue</span>
                   </a>
@@ -491,8 +585,8 @@
             </div>
           </article>
 
-          <!-- Card 3: Barat & Shubh Vivah -->
-          <article class="event-card theme-barat" id="event-card-barat" data-event-id="barat" data-index="2"
+          <!-- Card 4: Barat & Shubh Vivah -->
+          <article class="event-card theme-barat" id="event-card-barat" data-event-id="barat" data-index="3"
             tabindex="0">
             <div class="event-card-inner">
               <div class="event-card-decor-corner corner-tl"></div>
@@ -510,7 +604,7 @@
                   <span class="sparkle-dot sp-2">👑</span>
                   <span class="sparkle-dot sp-3">✨</span>
                 </div>
-                <span class="event-card-badge" id="card-badge-barat">CEREMONY 03</span>
+                <span class="event-card-badge" id="card-badge-barat">CEREMONY 04</span>
                 <div class="event-icon-circle">
                   <i class="fa-solid fa-horse"></i>
                 </div>
@@ -579,8 +673,8 @@
             </div>
           </article>
 
-          <!-- Card 4: Grand DINNER & Gala -->
-          <article class="event-card theme-DINNER" id="event-card-DINNER" data-event-id="DINNER" data-index="3"
+          <!-- Card 5: Grand DINNER & Gala -->
+          <article class="event-card theme-DINNER" id="event-card-DINNER" data-event-id="DINNER" data-index="4"
             tabindex="0">
             <div class="event-card-inner">
               <div class="event-card-decor-corner corner-tl"></div>
@@ -597,7 +691,7 @@
                   <span class="sparkle-dot sp-2">🥂</span>
                   <span class="sparkle-dot sp-3">✨</span>
                 </div>
-                <span class="event-card-badge" id="card-badge-DINNER">CEREMONY 04</span>
+                <span class="event-card-badge" id="card-badge-DINNER">CEREMONY 05</span>
                 <div class="event-icon-circle">
                   <i class="fa-solid fa-crown"></i>
                 </div>
@@ -668,9 +762,10 @@
       <!-- Bottom Pagination Dots Indicator -->
       <div class="events-dots-indicator" id="events-dots-indicator">
         <button class="event-dot active" data-index="0" aria-label="Haldi Ceremony"></button>
-        <button class="event-dot" data-index="1" aria-label="Sangeet Night"></button>
-        <button class="event-dot" data-index="2" aria-label="Barat & Wedding"></button>
-        <button class="event-dot" data-index="3" aria-label="Grand DINNER"></button>
+        <button class="event-dot" data-index="1" aria-label="Mehendi Ceremony"></button>
+        <button class="event-dot" data-index="2" aria-label="Sangeet Night"></button>
+        <button class="event-dot" data-index="3" aria-label="Barat & Wedding"></button>
+        <button class="event-dot" data-index="4" aria-label="Grand DINNER"></button>
       </div>
 
       <!-- ========================================================================
@@ -701,16 +796,15 @@
             <div class="fb-quote-decor corner-br"></div>
             <p class="fb-quote-text" id="fb-quote-text">
               “We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved
-              daughter and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred
-              journey of love and togetherness.
-              ”
+              son and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred
+              journey of love and togetherness.”
             </p>
           </div>
 
-          <!-- Family Tribute Cards (Centered Prasad Family) -->
+          <!-- Family Tribute Cards (Centered BID Family) -->
           <div class="fb-families-grid fb-single-family">
 
-            <!-- Bride's Family Column (Centered) -->
+            <!-- Groom's Family Column (Centered) -->
             <div class="fb-family-card bride-family-card animated-prasad-card">
               <div class="fb-card-decor corner-tl"></div>
               <div class="fb-card-decor corner-tr"></div>
@@ -718,20 +812,13 @@
               <div class="fb-card-decor corner-br"></div>
               <div class="fb-card-glow-aura"></div>
 
-              <h3 class="fb-family-heading" id="fb-bride-family-title">THE PRASAD FAMILY</h3>
-              <span class="fb-family-subheading" id="fb-bride-family-badge">BRIDE'S FAMILY</span>
-
-              <!-- Grandparents Box -->
-              <div class="fb-ancestor-box">
-                <span class="fb-ancestor-label" id="fb-bride-ancestor-label">With the pious blessings of</span>
-                <h4 class="fb-ancestor-names" id="fb-bride-ancestors">Late Kamini Devi &amp; Late Sheo Nandan Prasad
-                </h4>
-              </div>
+              <h3 class="fb-family-heading" id="fb-bride-family-title">THE BID FAMILY</h3>
+              <span class="fb-family-subheading" id="fb-bride-family-badge">GROOM'S FAMILY</span>
 
               <!-- Parents Box -->
               <div class="fb-parents-box">
                 <span class="fb-parents-label" id="fb-bride-parents-label">PARENTS</span>
-                <p class="fb-parents-names" id="fb-bride-parents">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+                <p class="fb-parents-names" id="fb-bride-parents">Mrs. Kalyani Bid &amp; Mr. Sukumar Bid</p>
               </div>
             </div>
 
@@ -742,7 +829,7 @@
             <span class="fb-gratitude-icon">𑁍</span>
             <p class="fb-gratitude-text">
               <span class="fb-gratitude-label" id="fb-gratitude-label">दर्शनाभिलाषी:</span>
-              <span class="fb-gratitude-val" id="fb-gratitude-val">Entire Prasad Family</span>
+              <span class="fb-gratitude-val" id="fb-gratitude-val">Entire Bid Family</span>
             </p>
             <span class="fb-gratitude-icon">𑁍</span>
           </div>

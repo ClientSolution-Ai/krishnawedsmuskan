@@ -27,8 +27,9 @@ function initHomeScrollStory() {
   const bgBackdrop = document.querySelector(".home-bg-backdrop");
   const bgVignette = document.querySelector(".home-bg-glow-vignette");
   const homeContainer = document.querySelector(".sacred-home-container");
-  const ganpatiSection = document.querySelector(".sacred-home-left");
-  const sacredRight = document.querySelector(".sacred-home-right");
+  const coupleStage = document.getElementById("couple-photo-stage") || document.querySelector(".sacred-home-left");
+  const namesStage = document.getElementById("names-union-stage") || document.querySelector(".sacred-home-right");
+  const ganpatiStage = document.getElementById("divine-ganpati-stage");
   const groomSection = document.querySelector(".groom-details-top");
   const brideSection = document.querySelector(".bride-details-bottom");
   const knotWrapper = document.querySelector(".home-center-wrapper");
@@ -113,12 +114,48 @@ function initHomeScrollStory() {
     currentProgress += (targetProgress - currentProgress) * 0.12;
     const isMobile = window.innerWidth <= 768;
 
-    // 1. Background Blur & Vignette (0.04 to 0.25)
-    const blurPx = mapRange(currentProgress, 0.04, 0.25, 0, 4.5);
-    const brightness = mapRange(currentProgress, 0.04, 0.25, 0.94, 0.58);
-    const vignetteOpacity = mapRange(currentProgress, 0.04, 0.25, 0.15, 1);
+    // 1. Background Blur & Vignette (Screen-specific clarity)
+    let blurPx = 0;
+    let brightness = 0.94;
+    let vignetteOpacity = 0.15;
 
-    bgBackdrop.style.filter = `blur(${blurPx.toFixed(2)}px) brightness(${brightness.toFixed(3)}) saturate(1.25) contrast(1.08)`;
+    if (!isMobile) {
+      // Windows Desktop: Palace house image is crystal clear during couple & names stage
+      if (currentProgress <= 0.46) {
+        blurPx = 0;
+        brightness = 0.94;
+        vignetteOpacity = 0.15;
+      } else if (currentProgress <= 0.56) {
+        blurPx = mapRange(currentProgress, 0.46, 0.56, 0, 3.5);
+        brightness = mapRange(currentProgress, 0.46, 0.56, 0.94, 0.65);
+        vignetteOpacity = mapRange(currentProgress, 0.46, 0.56, 0.15, 0.80);
+      } else {
+        blurPx = 3.5;
+        brightness = 0.65;
+        vignetteOpacity = 0.80;
+      }
+    } else {
+      // Mobile Screen: Agni mandap image is crisp and radiant initially
+      if (currentProgress < 0.10) {
+        blurPx = 0;
+        brightness = 0.98;
+        vignetteOpacity = 0.10;
+      } else if (currentProgress <= 0.35) {
+        blurPx = 0;
+        brightness = 0.98;
+        vignetteOpacity = 0.10;
+      } else if (currentProgress <= 0.52) {
+        blurPx = mapRange(currentProgress, 0.35, 0.52, 0, 3.5);
+        brightness = mapRange(currentProgress, 0.35, 0.52, 0.98, 0.65);
+        vignetteOpacity = mapRange(currentProgress, 0.35, 0.52, 0.10, 0.80);
+      } else {
+        blurPx = 3.5;
+        brightness = 0.65;
+        vignetteOpacity = 0.80;
+      }
+    }
+
+    bgBackdrop.style.filter = `blur(${blurPx.toFixed(2)}px) brightness(${brightness.toFixed(3)}) saturate(1.20) contrast(1.06)`;
     if (bgVignette) {
       bgVignette.style.opacity = vignetteOpacity.toFixed(3);
     }
@@ -126,199 +163,215 @@ function initHomeScrollStory() {
     if (!isMobile) {
       /* ================================================================
          DESKTOP / WEB VIEW PROGRESSION:
-         0.06 - 0.25: Ganpati fades in on left
-         0.18 - 0.38: Groom details reveal
-         0.30 - 0.48: Bride details reveal
-         0.42 - 0.60: Sacred Knot blooms in center
-         0.52 - 0.68: Countdown timer reveals at bottom center
-         0.68 - 0.78: Sacred Union & Countdown dissolve gracefully to 0
-         0.76 - 0.92: Royal Events Section unrolls cleanly with ZERO overlap!
+         0.00 - 0.46: Screen 1: House Background + Couple Photo (Left) & Names (Right)
+         0.46 - 0.54: Couple Photo & Names fade out gracefully
+         0.54 - 0.74: Screen 2: Pure Divine Lord Ganesha (Center) + Countdown Timer
+         0.72 - 0.78: Ganesha & Countdown dissolve gracefully to 0
+         0.76 - 1.00: Screen 3: Royal Events Section & Bid Family Blessings
          ================================================================ */
-      const unionStageOpacity = currentProgress <= 0.68
-        ? 1
-        : mapRange(currentProgress, 0.68, 0.78, 1, 0);
-      const unionStageScale = currentProgress <= 0.68
-        ? 1
-        : mapRange(currentProgress, 0.68, 0.78, 1, 0.94);
-
-      if (homeContainer) {
-        homeContainer.style.opacity = unionStageOpacity.toFixed(3);
-        homeContainer.style.pointerEvents = unionStageOpacity < 0.05 ? "none" : "auto";
-        homeContainer.style.visibility = currentProgress >= 0.78 ? "hidden" : "visible";
+      let stageUnionOpacity = 1;
+      let stageUnionScale = 1;
+      if (currentProgress <= 0.46) {
+        stageUnionOpacity = 1;
+        stageUnionScale = 1;
+      } else if (currentProgress <= 0.54) {
+        stageUnionOpacity = mapRange(currentProgress, 0.46, 0.54, 1, 0);
+        stageUnionScale = mapRange(currentProgress, 0.46, 0.54, 1, 0.94);
+      } else {
+        stageUnionOpacity = 0;
       }
 
-      // Ganpati Image Reveal (0.06 to 0.25)
-      if (ganpatiSection) {
-        let ganpatiOpacity = mapRange(currentProgress, 0.06, 0.25, 0, 1) * unionStageOpacity;
-        const ganpatiScale = mapRange(currentProgress, 0.06, 0.25, 0.92, 1.0) * unionStageScale;
-        const ganpatiTranslateX = mapRange(currentProgress, 0.06, 0.25, -35, 0);
-        ganpatiSection.style.opacity = ganpatiOpacity.toFixed(3);
-        ganpatiSection.style.filter = "none";
-        ganpatiSection.style.transform = `translateX(${ganpatiTranslateX.toFixed(1)}px) scale(${ganpatiScale.toFixed(3)})`;
+      if (coupleStage) {
+        coupleStage.style.opacity = stageUnionOpacity.toFixed(3);
+        coupleStage.style.transform = `scale(${stageUnionScale.toFixed(3)})`;
+        coupleStage.style.visibility = stageUnionOpacity <= 0 ? "hidden" : "visible";
+        coupleStage.style.pointerEvents = stageUnionOpacity > 0.5 ? "auto" : "none";
       }
 
-      // Groom Details Reveal (0.18 to 0.38)
-      let groomOpacity = mapRange(currentProgress, 0.18, 0.38, 0, 1) * unionStageOpacity;
-      const groomTranslateY = mapRange(currentProgress, 0.18, 0.38, -25, 0);
-      groomSection.style.opacity = groomOpacity.toFixed(3);
-      groomSection.style.filter = "none";
-      groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
-
-      // Bride Details Reveal (0.30 to 0.48)
-      let brideOpacity = mapRange(currentProgress, 0.30, 0.48, 0, 1) * unionStageOpacity;
-      const brideTranslateY = mapRange(currentProgress, 0.30, 0.48, 25, 0);
-      brideSection.style.opacity = brideOpacity.toFixed(3);
-      brideSection.style.filter = "none";
-      brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
-
-      // Sacred Knot home_center.png Bloom (0.42 to 0.60)
-      let knotOpacity = mapRange(currentProgress, 0.42, 0.60, 0, 1) * unionStageOpacity;
-      const knotScale = mapRange(currentProgress, 0.42, 0.60, 0.85, 1.0) * unionStageScale;
-      knotWrapper.style.opacity = knotOpacity.toFixed(3);
-      knotWrapper.style.filter = "none";
-      knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
-
-      if (sacredRight) {
-        sacredRight.style.opacity = unionStageOpacity.toFixed(3);
-        sacredRight.style.filter = "none";
+      if (namesStage) {
+        namesStage.style.opacity = stageUnionOpacity.toFixed(3);
+        namesStage.style.transform = `scale(${stageUnionScale.toFixed(3)})`;
+        namesStage.style.visibility = stageUnionOpacity <= 0 ? "hidden" : "visible";
+        namesStage.style.pointerEvents = stageUnionOpacity > 0.5 ? "auto" : "none";
       }
 
-      // Countdown Timer Banner (0.52 to 0.68, then fades out gracefully by 0.78)
+      if (brideSection) {
+        brideSection.style.opacity = stageUnionOpacity.toFixed(3);
+        brideSection.style.transform = "none";
+      }
+      if (knotWrapper) {
+        knotWrapper.style.opacity = stageUnionOpacity.toFixed(3);
+        knotWrapper.style.transform = "none";
+      }
+      if (groomSection) {
+        groomSection.style.opacity = stageUnionOpacity.toFixed(3);
+        groomSection.style.transform = "none";
+      }
+
+      // 3. Stage 4: Pure Divine Lord Ganesha (Center)
+      if (ganpatiStage) {
+        let ganpatiOpacity = 0;
+        let ganpatiScale = 1;
+        if (currentProgress < 0.52) {
+          ganpatiOpacity = 0;
+          ganpatiScale = 0.92;
+        } else if (currentProgress <= 0.60) {
+          ganpatiOpacity = mapRange(currentProgress, 0.52, 0.60, 0, 1);
+          ganpatiScale = mapRange(currentProgress, 0.52, 0.60, 0.92, 1.0);
+        } else if (currentProgress <= 0.68) {
+          ganpatiOpacity = 1;
+          ganpatiScale = 1.0;
+        } else if (currentProgress <= 0.76) {
+          ganpatiOpacity = mapRange(currentProgress, 0.68, 0.76, 1, 0);
+          ganpatiScale = mapRange(currentProgress, 0.68, 0.76, 1.0, 1.05);
+        } else {
+          ganpatiOpacity = 0;
+        }
+        ganpatiStage.style.opacity = ganpatiOpacity.toFixed(3);
+        ganpatiStage.style.transform = `translate(-50%, -50%) scale(${ganpatiScale.toFixed(3)})`;
+        ganpatiStage.style.visibility = ganpatiOpacity <= 0 ? "hidden" : "visible";
+        ganpatiStage.style.pointerEvents = ganpatiOpacity > 0.4 ? "auto" : "none";
+      }
+
+      // 4. Auspicious Countdown Timer (With Pure Lord Ganesha)
       if (countdownBanner) {
         let cdOpacity = 0;
-        if (currentProgress < 0.52) {
+        if (currentProgress < 0.53) {
           cdOpacity = 0;
+        } else if (currentProgress <= 0.61) {
+          cdOpacity = mapRange(currentProgress, 0.53, 0.61, 0, 1);
         } else if (currentProgress <= 0.68) {
-          cdOpacity = mapRange(currentProgress, 0.52, 0.68, 0, 1);
+          cdOpacity = 1;
+        } else if (currentProgress <= 0.76) {
+          cdOpacity = mapRange(currentProgress, 0.68, 0.76, 1, 0);
         } else {
-          cdOpacity = mapRange(currentProgress, 0.68, 0.78, 1, 0);
+          cdOpacity = 0;
         }
-        const cdTranslateY = mapRange(currentProgress, 0.52, 0.68, 18, 0);
+        const cdTranslateY = mapRange(currentProgress, 0.53, 0.61, 18, 0);
         countdownBanner.style.opacity = cdOpacity.toFixed(3);
         countdownBanner.style.transform = `translateX(-50%) translateY(${cdTranslateY.toFixed(1)}px)`;
         countdownBanner.style.pointerEvents = cdOpacity > 0.5 ? "auto" : "none";
         countdownBanner.style.visibility = cdOpacity <= 0 ? "hidden" : "visible";
-      }
-
-      // ROYAL EVENTS SECTION (0.76 to 0.94)
-      if (eventsSection) {
-        if (currentProgress < 0.74) {
-          eventsSection.style.opacity = "0";
-          eventsSection.style.visibility = "hidden";
-          eventsSection.style.pointerEvents = "none";
-          eventsSection.classList.remove("visible");
-        } else {
-          const evOpacity = mapRange(currentProgress, 0.74, 0.92, 0, 1);
-          const evTranslateY = mapRange(currentProgress, 0.74, 0.92, 35, 0);
-          eventsSection.style.opacity = evOpacity.toFixed(3);
-          eventsSection.style.transform = `translateY(${evTranslateY.toFixed(1)}px)`;
-          eventsSection.style.visibility = "visible";
-          eventsSection.style.pointerEvents = evOpacity > 0.4 ? "auto" : "none";
-          if (evOpacity > 0.1) {
-            eventsSection.classList.add("visible");
-          } else {
-            eventsSection.classList.remove("visible");
-          }
-        }
       }
 
     } else {
       /* ================================================================
          MOBILE DEVICE PROGRESSION:
-         0.06 - 0.20: Groom & Bride reveal
-         0.15 - 0.30: Knot bloom & Ganpati reveal
-         0.32 - 0.48: Groom, Bride, Knot fade out gracefully; Ganpati moves to center and glows
-         0.48 - 0.62: Countdown timer reveals below Ganpati
-         0.64 - 0.76: Ganpati & Countdown dissolve gracefully to 0
-         0.76 - 0.92: Royal Events Section unrolls cleanly with ZERO overlap!
+         0.00 - 0.10: Screen 1 -> Holy Agni (crisp, radiant havan kund background)
+         0.10 - 0.35: Screen 2 -> Couple Photo in Full Mobile Screen
+         0.33 - 0.55: Screen 3 -> Groom & Bride Names + Royal Monogram
+         0.53 - 0.76: Screen 4 -> Pristine Lord Ganesha + Wedding Countdown Timer
+         0.74 - 1.00: Screen 5 -> Royal Events Cards & Family Blessings
          ================================================================ */
-      // 1. Groom details
-      let groomOpacity = mapRange(currentProgress, 0.06, 0.20, 0, 1);
-      if (currentProgress > 0.32) {
-        groomOpacity = mapRange(currentProgress, 0.32, 0.48, 1, 0);
-      }
-      const groomTranslateY = currentProgress <= 0.32
-        ? mapRange(currentProgress, 0.06, 0.20, -15, 0)
-        : mapRange(currentProgress, 0.32, 0.48, 0, 20);
-      groomSection.style.opacity = groomOpacity.toFixed(3);
-      groomSection.style.filter = "none";
-      groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
-
-      // 2. Bride details
-      let brideOpacity = mapRange(currentProgress, 0.08, 0.22, 0, 1);
-      if (currentProgress > 0.32) {
-        brideOpacity = mapRange(currentProgress, 0.32, 0.48, 1, 0);
-      }
-      const brideTranslateY = currentProgress <= 0.32
-        ? mapRange(currentProgress, 0.08, 0.22, 15, 0)
-        : mapRange(currentProgress, 0.32, 0.48, 0, 25);
-      brideSection.style.opacity = brideOpacity.toFixed(3);
-      brideSection.style.filter = "none";
-      brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
-
-      // 3. Sacred knot
-      let knotOpacity = mapRange(currentProgress, 0.15, 0.30, 0, 1);
-      let knotScale = mapRange(currentProgress, 0.15, 0.30, 0.88, 1.0);
-      if (currentProgress > 0.32) {
-        knotOpacity = mapRange(currentProgress, 0.32, 0.48, 1, 0);
-        knotScale = mapRange(currentProgress, 0.32, 0.48, 1.0, 0.88);
-      }
-      knotWrapper.style.opacity = knotOpacity.toFixed(3);
-      knotWrapper.style.filter = "none";
-      knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
-
-      // 4. Ganpati: Initial fade-in (0.06 - 0.20), expands to majestic center (0.32 - 0.52), fades out (0.64 - 0.76)
-      if (ganpatiSection) {
-        let ganpatiOpacity = mapRange(currentProgress, 0.06, 0.20, 0, 1);
-        let ganpatiScale = mapRange(currentProgress, 0.06, 0.20, 0.92, 1.0);
-        let ganpatiTranslateY = mapRange(currentProgress, 0.06, 0.20, -15, 0);
-
-        if (currentProgress > 0.32 && currentProgress <= 0.64) {
-          const growScale = mapRange(currentProgress, 0.32, 0.52, 1.0, 1.75);
-          const centerShiftY = mapRange(currentProgress, 0.32, 0.52, 0, window.innerHeight * 0.17);
-          ganpatiScale = growScale;
-          ganpatiTranslateY = centerShiftY;
-          ganpatiOpacity = 1;
-        } else if (currentProgress > 0.64) {
-          ganpatiOpacity = mapRange(currentProgress, 0.64, 0.76, 1, 0);
-          ganpatiScale = 1.75;
-          ganpatiTranslateY = window.innerHeight * 0.17;
+      // 1. Screen 2: Couple Photo comes AFTER Agni in full mobile screen
+      if (coupleStage) {
+        let coupleOpacity = 0;
+        let coupleScale = 1;
+        if (currentProgress < 0.10) {
+          coupleOpacity = 0;
+          coupleScale = 1.04;
+        } else if (currentProgress <= 0.18) {
+          coupleOpacity = mapRange(currentProgress, 0.10, 0.18, 0, 1);
+          coupleScale = mapRange(currentProgress, 0.10, 0.18, 1.04, 1.0);
+        } else if (currentProgress <= 0.28) {
+          coupleOpacity = 1;
+          coupleScale = 1.0;
+        } else if (currentProgress <= 0.35) {
+          coupleOpacity = mapRange(currentProgress, 0.28, 0.35, 1, 0);
+          coupleScale = mapRange(currentProgress, 0.28, 0.35, 1.0, 0.96);
+        } else {
+          coupleOpacity = 0;
         }
-
-        ganpatiSection.style.opacity = ganpatiOpacity.toFixed(3);
-        ganpatiSection.style.transform = `translateY(${ganpatiTranslateY.toFixed(1)}px) scale(${ganpatiScale.toFixed(3)})`;
-        ganpatiSection.style.pointerEvents = ganpatiOpacity < 0.05 ? "none" : "auto";
-        ganpatiSection.style.filter = (currentProgress > 0.36 && currentProgress <= 0.64)
-          ? `drop-shadow(0 15px 35px rgba(0,0,0,0.9)) drop-shadow(0 0 35px rgba(249, 228, 150, ${mapRange(currentProgress, 0.36, 0.52, 0.35, 0.8).toFixed(2)}))`
-          : "none";
+        coupleStage.style.opacity = coupleOpacity.toFixed(3);
+        coupleStage.style.transform = `scale(${coupleScale.toFixed(3)})`;
+        coupleStage.style.visibility = coupleOpacity <= 0 ? "hidden" : "visible";
+        coupleStage.style.pointerEvents = coupleOpacity > 0.5 ? "auto" : "none";
       }
 
-      // Container visibility
-      if (homeContainer) {
-        const mobContainerOpacity = currentProgress <= 0.64
-          ? 1
-          : mapRange(currentProgress, 0.64, 0.76, 1, 0);
-        homeContainer.style.opacity = mobContainerOpacity.toFixed(3);
-        homeContainer.style.pointerEvents = mobContainerOpacity < 0.05 ? "none" : "auto";
-        homeContainer.style.visibility = currentProgress >= 0.76 ? "hidden" : "visible";
+      // 2. Screen 3: Names (Bride, Monogram, Groom)
+      if (namesStage) {
+        let namesOpacity = 0;
+        let namesScale = 1;
+        if (currentProgress < 0.33) {
+          namesOpacity = 0;
+          namesScale = 0.94;
+        } else if (currentProgress <= 0.41) {
+          namesOpacity = mapRange(currentProgress, 0.33, 0.41, 0, 1);
+          namesScale = mapRange(currentProgress, 0.33, 0.41, 0.94, 1.0);
+        } else if (currentProgress <= 0.49) {
+          namesOpacity = 1;
+          namesScale = 1.0;
+        } else if (currentProgress <= 0.56) {
+          namesOpacity = mapRange(currentProgress, 0.49, 0.56, 1, 0);
+          namesScale = mapRange(currentProgress, 0.49, 0.56, 1.0, 1.04);
+        } else {
+          namesOpacity = 0;
+        }
+        namesStage.style.opacity = namesOpacity.toFixed(3);
+        namesStage.style.transform = `scale(${namesScale.toFixed(3)})`;
+        namesStage.style.visibility = namesOpacity <= 0 ? "hidden" : "visible";
+        namesStage.style.pointerEvents = namesOpacity > 0.5 ? "auto" : "none";
+
+        if (brideSection) {
+          brideSection.style.opacity = namesOpacity.toFixed(3);
+          brideSection.style.transform = "none";
+        }
+        if (knotWrapper) {
+          knotWrapper.style.opacity = namesOpacity.toFixed(3);
+          knotWrapper.style.transform = "none";
+        }
+        if (groomSection) {
+          groomSection.style.opacity = namesOpacity.toFixed(3);
+          groomSection.style.transform = "none";
+        }
       }
 
-      // 5. Countdown Timer on Mobile (0.48 - 0.62 prominent, fades out 0.64 - 0.76)
+      // 3. Screen 4: Pristine Divine Lord Ganesha Image (Appears AFTER Names)
+      if (ganpatiStage) {
+        let ganpatiOpacity = 0;
+        let ganpatiScale = 1;
+        if (currentProgress < 0.53) {
+          ganpatiOpacity = 0;
+          ganpatiScale = 0.90;
+        } else if (currentProgress <= 0.61) {
+          ganpatiOpacity = mapRange(currentProgress, 0.53, 0.61, 0, 1);
+          ganpatiScale = mapRange(currentProgress, 0.53, 0.61, 0.90, 1.0);
+        } else if (currentProgress <= 0.69) {
+          ganpatiOpacity = 1;
+          ganpatiScale = 1.0;
+        } else if (currentProgress <= 0.76) {
+          ganpatiOpacity = mapRange(currentProgress, 0.69, 0.76, 1, 0);
+          ganpatiScale = mapRange(currentProgress, 0.69, 0.76, 1.0, 1.05);
+        } else {
+          ganpatiOpacity = 0;
+        }
+        ganpatiStage.style.opacity = ganpatiOpacity.toFixed(3);
+        ganpatiStage.style.transform = `translate(-50%, -50%) scale(${ganpatiScale.toFixed(3)})`;
+        ganpatiStage.style.visibility = ganpatiOpacity <= 0 ? "hidden" : "visible";
+        ganpatiStage.style.pointerEvents = ganpatiOpacity > 0.4 ? "auto" : "none";
+      }
+
+      // 4. Auspicious Countdown Timer (With Pure Lord Ganesha)
       if (countdownBanner) {
         let cdOpacity = 0;
-        if (currentProgress < 0.48) {
+        if (currentProgress < 0.54) {
           cdOpacity = 0;
-        } else if (currentProgress <= 0.64) {
-          cdOpacity = mapRange(currentProgress, 0.48, 0.62, 0, 1);
+        } else if (currentProgress <= 0.62) {
+          cdOpacity = mapRange(currentProgress, 0.54, 0.62, 0, 1);
+        } else if (currentProgress <= 0.69) {
+          cdOpacity = 1;
+        } else if (currentProgress <= 0.76) {
+          cdOpacity = mapRange(currentProgress, 0.69, 0.76, 1, 0);
         } else {
-          cdOpacity = mapRange(currentProgress, 0.64, 0.76, 1, 0);
+          cdOpacity = 0;
         }
-        const cdTranslateY = mapRange(currentProgress, 0.48, 0.62, 16, 0);
+        const cdTranslateY = mapRange(currentProgress, 0.54, 0.62, 18, 0);
         countdownBanner.style.opacity = cdOpacity.toFixed(3);
         countdownBanner.style.transform = `translateX(-50%) translateY(${cdTranslateY.toFixed(1)}px)`;
         countdownBanner.style.pointerEvents = cdOpacity > 0.5 ? "auto" : "none";
         countdownBanner.style.visibility = cdOpacity <= 0 ? "hidden" : "visible";
       }
+    }
 
       // 6. ROYAL EVENTS SECTION ON MOBILE (0.76 to 0.94)
       if (eventsSection) {
@@ -341,7 +394,6 @@ function initHomeScrollStory() {
           }
         }
       }
-    }
 
     requestAnimationFrame(renderFrame);
   }
@@ -700,12 +752,12 @@ function initHomeLanguageSystem() {
       groom: {
         name: lang === "en" ? "Krishna Kumar" : "कृष्ण कुमार",
         kinship: lang === "en" ? "Son of" : "सुपुत्र",
-        parents: lang === "en" ? "Smt. Kalyani Bid & Shri Sukumar Bid" : "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
+        parents: lang === "en" ? "Mrs. Kalyani Bid & Mr. Sukumar Bid" : "श्रीमती कल्याणी बिद एवं श्री सुकुमार बिद"
       },
       bride: {
         name: lang === "en" ? "Kumari Muskan" : "कुमारी मुस्कान",
         kinship: lang === "en" ? "Daughter of" : "सुपुत्री",
-        parents: lang === "en" ? "Smt. Annu Prasad & Shri Uday Shankar Prasad" : "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
+        parents: lang === "en" ? "Mrs. Annu Prasad & Mr. Uday Shankar Prasad" : "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
       },
       countdown: {
         days: lang === "en" ? "Days" : "दिन",
@@ -863,8 +915,26 @@ function initHomeLanguageSystem() {
       if (t.familyBlessings.brideFamily) {
         if (fbBrideTitle) fbBrideTitle.textContent = t.familyBlessings.brideFamily.title;
         if (fbBrideBadge) fbBrideBadge.textContent = t.familyBlessings.brideFamily.badge;
-        if (fbBrideAncLabel) fbBrideAncLabel.textContent = t.familyBlessings.brideFamily.ancestorLabel;
-        if (fbBrideAncestors) fbBrideAncestors.textContent = t.familyBlessings.brideFamily.ancestors;
+        const ancBox = document.querySelector(".fb-ancestor-box");
+        if (fbBrideAncLabel) {
+          if (!t.familyBlessings.brideFamily.ancestorLabel) {
+            fbBrideAncLabel.textContent = "";
+            if (ancBox) ancBox.style.display = "none";
+          } else {
+            fbBrideAncLabel.textContent = t.familyBlessings.brideFamily.ancestorLabel;
+          }
+        }
+        if (fbBrideAncestors) {
+          if (!t.familyBlessings.brideFamily.ancestors) {
+            fbBrideAncestors.textContent = "";
+            if (ancBox) ancBox.style.display = "none";
+          } else {
+            fbBrideAncestors.textContent = t.familyBlessings.brideFamily.ancestors;
+          }
+        }
+        if (ancBox && (!t.familyBlessings.brideFamily.ancestorLabel && !t.familyBlessings.brideFamily.ancestors)) {
+          ancBox.style.display = "none";
+        }
         if (fbBrideParLabel) fbBrideParLabel.textContent = t.familyBlessings.brideFamily.parentsLabel;
         if (fbBrideParents) fbBrideParents.textContent = t.familyBlessings.brideFamily.parents;
       }
@@ -933,6 +1003,11 @@ function initEventsCardsSystem() {
     cards.forEach((c, idx) => {
       c.classList.toggle("active", idx === index);
     });
+
+    const dots = document.querySelectorAll(".event-dot");
+    dots.forEach((d, idx) => {
+      d.classList.toggle("active", idx === index);
+    });
   }
 
   // Pill tab click
@@ -943,6 +1018,32 @@ function initEventsCardsSystem() {
       if (!isNaN(idx)) scrollToCard(idx);
     });
   });
+
+  // Dots indicator click
+  const dots = document.querySelectorAll(".event-dot");
+  dots.forEach((dot) => {
+    dot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const idx = parseInt(dot.getAttribute("data-index"), 10);
+      if (!isNaN(idx)) scrollToCard(idx);
+    });
+  });
+
+  // Prev / Next button click
+  const prevBtn = document.getElementById("events-prev-btn");
+  const nextBtn = document.getElementById("events-next-btn");
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      scrollToCard(activeIndex - 1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      scrollToCard(activeIndex + 1);
+    });
+  }
 
   // Vertical scroll observer (auto update active pill while scrolling down)
   if (eventsSection) {
@@ -1014,21 +1115,21 @@ function handleAddToCalendar(eventId) {
       title: "Haldi Ceremony -Muskan & Krishna Wedding",
       start: "20261124T100000",
       end: "20261124T130000",
-      location: "Sangli Resort Lawns",
+      location: "Aditya Banquet Hall, Hirak Road, Dhanbad",
       description: "Auspicious Haldi Ceremony of Muskan & Krishna. Dress code: Festive Yellow."
     },
     mehendi: {
       title: "Mehendi Celebration - Muskan & Krishna Wedding",
       start: "20261124T160000",
       end: "20261124T193000",
-      location: "Sangli Resort Courtyard",
+      location: "Aditya Banquet Hall, Hirak Road, Dhanbad",
       description: "Mehendi & High Tea celebration of Muskan & Krishna. Dress code: Emerald Green & Floral."
     },
     sangeet: {
       title: "Sangeet Night - Muskan & Krishna Wedding",
       start: "20261124T200000",
       end: "20261125T010000",
-      location: "Grand Ballroom, Sangli Resor",
+      location: "Aditya Banquet Hall, Hirak Road, Dhanbad",
       description: "Sangeet Night & dinner of Muskan & Krishna. Dress code: Glamorous Indo-Western."
     },
     barat: {
@@ -1050,7 +1151,7 @@ function handleAddToCalendar(eventId) {
       start: "20261125T100000",
       end: "20261125T235900",
       location: "Sangli Resort Dhanbad",
-      description: "Family Blessings & Divine Prayers with Prasad Parivar for Muskan & Krishna."
+      description: "Family Blessings & Divine Prayers with Bid Parivar for Muskan & Krishna."
     }
   };
 
