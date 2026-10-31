@@ -15,6 +15,8 @@ const WEDDING_CONFIG = {
       btnLabel: "अ",
       btnTitle: "हिंदी में देखें / View in Hindi",
       scrollHint: "Scroll to Unveil",
+      tapToOpen: "TAP TO OPEN",
+      tapToScroll: "SCROLL",
       bride: {
         name: "Muskan",
         kinship: "Daughter of",
@@ -119,6 +121,8 @@ const WEDDING_CONFIG = {
       btnLabel: "EN",
       btnTitle: "View in English / अंग्रेजी में देखें",
       scrollHint: "दर्शन हेतु स्क्रॉल करें",
+      tapToOpen: "द्वार खोलें",
+      tapToScroll: "स्क्रॉल",
       bride: {
         name: "कुमारी मुस्कान",
         kinship: "सुपुत्री",

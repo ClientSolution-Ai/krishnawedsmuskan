@@ -35,6 +35,8 @@ function initHomeScrollStory() {
   const brideSection = document.querySelector(".bride-details-bottom");
   const knotWrapper = document.querySelector(".home-center-wrapper");
   const scrollHint = document.getElementById("scroll-unveil-hint");
+  const tapToScrollBtn = document.getElementById("tap-to-scroll-btn");
+  const tapToScrollWrapper = document.getElementById("tap-to-scroll-container");
   const countdownBanner = document.getElementById("home-countdown-banner");
   const eventsSection = document.getElementById("royal-events-section");
 
@@ -100,6 +102,16 @@ function initHomeScrollStory() {
     });
   }
 
+  // Scroll Button: Smoothly advances past the initial Agni screen when clicked
+  if (tapToScrollBtn) {
+    tapToScrollBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isMobileDevice = window.innerWidth <= 768;
+      targetProgress = isMobileDevice ? 0.22 : 0.60;
+      accumulatedScroll = targetProgress * maxScroll;
+    });
+  }
+
   function mapRange(val, inMin, inMax, outMin, outMax) {
     if (val <= inMin) return outMin;
     if (val >= inMax) return outMax;
@@ -116,15 +128,15 @@ function initHomeScrollStory() {
     let vignetteOpacity = 0.15;
 
     if (!isMobile) {
-      // Windows Desktop: Agni backdrop is crisp initially, then gently blurs for text contrast
-      if (currentProgress <= 0.32) {
+      // Windows Desktop: Palace house image is crystal clear during couple & names stage
+      if (currentProgress <= 0.46) {
         blurPx = 0;
         brightness = 0.94;
         vignetteOpacity = 0.15;
-      } else if (currentProgress <= 0.50) {
-        blurPx = mapRange(currentProgress, 0.32, 0.50, 0, 3.5);
-        brightness = mapRange(currentProgress, 0.32, 0.50, 0.94, 0.65);
-        vignetteOpacity = mapRange(currentProgress, 0.32, 0.50, 0.15, 0.80);
+      } else if (currentProgress <= 0.56) {
+        blurPx = mapRange(currentProgress, 0.46, 0.56, 0, 3.5);
+        brightness = mapRange(currentProgress, 0.46, 0.56, 0.94, 0.65);
+        vignetteOpacity = mapRange(currentProgress, 0.46, 0.56, 0.15, 0.80);
       } else {
         blurPx = 3.5;
         brightness = 0.65;
@@ -154,28 +166,21 @@ function initHomeScrollStory() {
 
     if (!isMobile) {
       /* ================================================================
-         DESKTOP / WEB VIEW PROGRESSION:
-         0.00 - 0.10: Screen 1: Sacred Holy Agni (Sacred Fire upon gate open)
-         0.10 - 0.48: Screen 2: Couple Photo (Left) + Names & Monogram (Right)
-         0.48 - 0.56: Couple Photo & Names fade out gracefully
-         0.54 - 0.74: Screen 3: Pure Divine Lord Ganesha (Center) + Countdown Timer
+         WINDOWS DESKTOP PROGRESSION:
+         0.00 - 0.46: Screen 1: Royal Palace House with Couple Photo (Left) + Names & Monogram (Right)
+         0.46 - 0.54: Couple Photo & Names fade out gracefully
+         0.54 - 0.74: Screen 2: Pure Divine Lord Ganesha (Center) + Countdown Timer
          0.72 - 0.78: Ganesha & Countdown dissolve gracefully to 0
-         0.76 - 1.00: Screen 4: Royal Events Section & Family Blessings
+         0.76 - 1.00: Screen 3: Royal Events Section & Bid Family Blessings
          ================================================================ */
-      let stageUnionOpacity = 0;
+      let stageUnionOpacity = 1;
       let stageUnionScale = 1;
-      if (currentProgress <= 0.10) {
-        stageUnionOpacity = 0;
-        stageUnionScale = 0.95;
-      } else if (currentProgress <= 0.20) {
-        stageUnionOpacity = mapRange(currentProgress, 0.10, 0.20, 0, 1);
-        stageUnionScale = mapRange(currentProgress, 0.10, 0.20, 0.95, 1.0);
-      } else if (currentProgress <= 0.48) {
+      if (currentProgress <= 0.46) {
         stageUnionOpacity = 1;
         stageUnionScale = 1;
-      } else if (currentProgress <= 0.56) {
-        stageUnionOpacity = mapRange(currentProgress, 0.48, 0.56, 1, 0);
-        stageUnionScale = mapRange(currentProgress, 0.48, 0.56, 1, 0.94);
+      } else if (currentProgress <= 0.54) {
+        stageUnionOpacity = mapRange(currentProgress, 0.46, 0.54, 1, 0);
+        stageUnionScale = mapRange(currentProgress, 0.46, 0.54, 1, 0.94);
       } else {
         stageUnionOpacity = 0;
       }
@@ -211,18 +216,18 @@ function initHomeScrollStory() {
       if (ganpatiStage) {
         let ganpatiOpacity = 0;
         let ganpatiScale = 1;
-        if (currentProgress < 0.54) {
+        if (currentProgress < 0.52) {
           ganpatiOpacity = 0;
           ganpatiScale = 0.92;
-        } else if (currentProgress <= 0.62) {
-          ganpatiOpacity = mapRange(currentProgress, 0.54, 0.62, 0, 1);
-          ganpatiScale = mapRange(currentProgress, 0.54, 0.62, 0.92, 1.0);
-        } else if (currentProgress <= 0.70) {
+        } else if (currentProgress <= 0.60) {
+          ganpatiOpacity = mapRange(currentProgress, 0.52, 0.60, 0, 1);
+          ganpatiScale = mapRange(currentProgress, 0.52, 0.60, 0.92, 1.0);
+        } else if (currentProgress <= 0.68) {
           ganpatiOpacity = 1;
           ganpatiScale = 1.0;
-        } else if (currentProgress <= 0.78) {
-          ganpatiOpacity = mapRange(currentProgress, 0.70, 0.78, 1, 0);
-          ganpatiScale = mapRange(currentProgress, 0.70, 0.78, 1.0, 1.05);
+        } else if (currentProgress <= 0.76) {
+          ganpatiOpacity = mapRange(currentProgress, 0.68, 0.76, 1, 0);
+          ganpatiScale = mapRange(currentProgress, 0.68, 0.76, 1.0, 1.05);
         } else {
           ganpatiOpacity = 0;
         }
@@ -235,18 +240,18 @@ function initHomeScrollStory() {
       // 4. Auspicious Countdown Timer (With Pure Lord Ganesha)
       if (countdownBanner) {
         let cdOpacity = 0;
-        if (currentProgress < 0.55) {
+        if (currentProgress < 0.53) {
           cdOpacity = 0;
-        } else if (currentProgress <= 0.63) {
-          cdOpacity = mapRange(currentProgress, 0.55, 0.63, 0, 1);
-        } else if (currentProgress <= 0.70) {
+        } else if (currentProgress <= 0.61) {
+          cdOpacity = mapRange(currentProgress, 0.53, 0.61, 0, 1);
+        } else if (currentProgress <= 0.68) {
           cdOpacity = 1;
-        } else if (currentProgress <= 0.78) {
-          cdOpacity = mapRange(currentProgress, 0.70, 0.78, 1, 0);
+        } else if (currentProgress <= 0.76) {
+          cdOpacity = mapRange(currentProgress, 0.68, 0.76, 1, 0);
         } else {
           cdOpacity = 0;
         }
-        const cdTranslateY = mapRange(currentProgress, 0.55, 0.63, 18, 0);
+        const cdTranslateY = mapRange(currentProgress, 0.53, 0.61, 18, 0);
         countdownBanner.style.opacity = cdOpacity.toFixed(3);
         countdownBanner.style.transform = `translateX(-50%) translateY(${cdTranslateY.toFixed(1)}px)`;
         countdownBanner.style.pointerEvents = cdOpacity > 0.5 ? "auto" : "none";
@@ -449,6 +454,24 @@ function initHomeScrollStory() {
         } else {
           eventsSection.classList.remove("visible");
         }
+      }
+    }
+
+    // 6. SCROLL PROMPT: Only visible right after gate open on Agni screen, dissolves immediately upon scroll
+    if (tapToScrollWrapper) {
+      if (currentProgress <= 0.02) {
+        tapToScrollWrapper.style.opacity = "1";
+        tapToScrollWrapper.style.visibility = "visible";
+        tapToScrollWrapper.style.pointerEvents = "auto";
+      } else if (currentProgress <= 0.08) {
+        const scOp = mapRange(currentProgress, 0.02, 0.08, 1, 0);
+        tapToScrollWrapper.style.opacity = scOp.toFixed(3);
+        tapToScrollWrapper.style.pointerEvents = scOp > 0.1 ? "auto" : "none";
+        tapToScrollWrapper.style.visibility = scOp <= 0 ? "hidden" : "visible";
+      } else {
+        tapToScrollWrapper.style.opacity = "0";
+        tapToScrollWrapper.style.visibility = "hidden";
+        tapToScrollWrapper.style.pointerEvents = "none";
       }
     }
 
@@ -826,6 +849,11 @@ function initRoyalDoorsTransition() {
     }, 1300);
   }
 
+  const openDoorsBtn = document.getElementById("open-doors-btn");
+  if (openDoorsBtn) {
+    openDoorsBtn.addEventListener("click", handleOpenDoors);
+  }
+
   if (doorsContainer) {
     doorsContainer.addEventListener("click", handleOpenDoors);
     doorsContainer.addEventListener("keydown", (e) => {
@@ -920,6 +948,10 @@ function initHomeLanguageSystem() {
     if (brideKinshipEl && t.bride) brideKinshipEl.textContent = t.bride.kinship;
     if (brideParentsEl && t.bride) brideParentsEl.textContent = t.bride.parents;
     if (scrollHintEl) scrollHintEl.textContent = t.scrollHint;
+    const doorOpenTextEl = document.getElementById("door-open-text");
+    const ttsBtnTextEl = document.getElementById("tts-btn-text");
+    if (doorOpenTextEl) doorOpenTextEl.textContent = t.tapToOpen || (lang === "en" ? "TAP TO OPEN" : "द्वार खोलें");
+    if (ttsBtnTextEl) ttsBtnTextEl.textContent = t.tapToScroll || (lang === "en" ? "SCROLL" : "स्क्रॉल");
     if (cdDaysEl && t.countdown) cdDaysEl.textContent = t.countdown.days;
     if (cdHoursEl && t.countdown) cdHoursEl.textContent = t.countdown.hours;
     if (cdMinsEl && t.countdown) cdMinsEl.textContent = t.countdown.mins;
