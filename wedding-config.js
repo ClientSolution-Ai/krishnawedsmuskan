@@ -47,7 +47,7 @@ const WEDDING_CONFIG = {
             tagline: "Ubtan, Laughter & Golden Sunshine",
             date: "Tuesday, 24th November 2026",
             time: "10:00 AM - 01:00 PM",
-            venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+            venue: "Aditya Banquet, Hirak Road, Dhanbad",
             dressCode: "Festive Yellow",
             description: "An auspicious morning bathed in golden turmeric pastes, fragrant marigold showers, and joyful family banter."
           },
@@ -58,7 +58,7 @@ const WEDDING_CONFIG = {
             tagline: "Intricate Henna, Folk Rhythms & Royal Flavors",
             date: "Tuesday, 24th November 2026",
             time: "04:00 PM - 07:30 PM",
-            venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+            venue: "Aditya Banquet, Hirak Road, Dhanbad",
             dressCode: "Emerald Green & Floral",
             description: "Adorning hands with exquisite fragrant henna motifs, live folk rhythms, and lavish Rajasthani high-tea delicacies."
           },
@@ -69,14 +69,14 @@ const WEDDING_CONFIG = {
             tagline: "A Symphony of Beats, Glitz & Grand Performances",
             date: "Tuesday, 24th November 2026",
             time: "08:00 PM Onwards",
-            venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+            venue: "Sangli Resort, Dhanbad",
             dressCode: "Glamorous Indo-Western",
             description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, and gourmet dining."
           },
           {
             id: "barat",
             badge: "CEREMONY 04",
-            name: "Baraat Agaman & Shubh Vivah",
+            name: "Baraat & Shubh Vivah",
             tagline: "The Wedding & Sacred 7 Pheras",
             date: "Wednesday, 25th November 2026",
             time: "Varmala 09:30 PM",
@@ -173,7 +173,7 @@ const WEDDING_CONFIG = {
             tagline: "सुर, ताल और नृत्य का भव्य संगम",
             date: "मंगलवार, २४ नवंबर २०२६",
             time: "रात्रि ०८:०० बजे से",
-            venue: "आदित्य बैंक्वेट हॉल, हीरक रोड, धनबाद",
+            venue: "सांगली रिसॉर्ट, धनबाद",
             dressCode: "इंडो-वेस्टर्न एवं चमकीले परिधान",
             description: "पारिवारिक मनमोहक नृत्य प्रस्तुतियां, डीजे की धुनें और भव्य शाही रात्रिभोज।"
           },
@@ -305,10 +305,10 @@ const WEDDING_CONFIG = {
       themeColor: "#E5A93B",
       googleMapsUrl: "https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad",
       calendarData: {
-        title: "Haldi Ceremony - Muskan & Krishna Wedding",
+        title: "Haldi Ceremony - Krishna & Muskan Wedding",
         start: "20261124T100000",
         end: "20261124T130000",
-        location: "Aditya Banquet Hall, Hirak Road, Dhanbad"
+        location: "Aditya Banquet, Hirak Road, Dhanbad"
       }
     },
     {
@@ -325,7 +325,7 @@ const WEDDING_CONFIG = {
       themeColor: "#2D7F5E",
       googleMapsUrl: "https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad",
       calendarData: {
-        title: "Mehendi Ceremony - Muskan & Krishna Wedding",
+        title: "Mehendi Ceremony - Krishna & Muskan Wedding",
         start: "20261124T160000",
         end: "20261124T193000",
         location: "Aditya Banquet Hall, Hirak Road, Dhanbad"
@@ -337,18 +337,18 @@ const WEDDING_CONFIG = {
       tagline: "A Symphony of Beats, Glitz & Grand Performances",
       date: "Tuesday, 24th November 2026",
       time: "08:00 PM Onwards",
-      venue: "Aditya Banquet Hall, Hirak Road, Dhanbad",
-      address: "Aditya Banquet Hall, Hirak Road, Dhanbad",
+      venue: "Sangli Resort, Dhanbad",
+      address: "Sangli Resort, Dhanbad",
       dressCode: "Glamorous Indowestern & Sparkly Lehengas",
       description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, signature royal cocktails, and gourmet dining.",
       icon: "music",
       themeColor: "#8B2671",
-      googleMapsUrl: "https://maps.google.com/?q=Aditya+Banquet+Hall+Hirak+Road+Dhanbad",
+      googleMapsUrl: "https://maps.google.com/?q=Sangli+Resort+Dhanbad+Jharkhand",
       calendarData: {
-        title: "Royal Sangeet - Muskan & Krishna Wedding",
+        title: "Royal Sangeet - Krishna & Muskan Wedding",
         start: "20261124T200000",
         end: "20261125T010000",
-        location: "Aditya Banquet Hall, Hirak Road, Dhanbad"
+        location: "Sangli Resort, Dhanbad"
       }
     },
     {
@@ -365,7 +365,7 @@ const WEDDING_CONFIG = {
       themeColor: "#8B1E2D",
       googleMapsUrl: "https://maps.google.com/?q=Jagmandir+Island+Palace+Udaipur",
       calendarData: {
-        title: "Wedding Ceremony (Pheras) - Muskan & Krishna",
+        title: "Wedding Ceremony (Pheras) - Krishna & Muskan",
         start: "20261125T163000",
         end: "20261125T230000",
         location: "Sangli Resort Mandap, Dhanbad"
@@ -384,7 +384,7 @@ const WEDDING_CONFIG = {
       themeColor: "#C59B27",
       googleMapsUrl: "https://maps.google.com/?q=City+Palace+Udaipur",
       calendarData: {
-        title: "Grand DINNER - Muskan & Krishna",
+        title: "Grand DINNER - Krishna & Muskan",
         start: "20261213T193000",
         end: "20261213T235900",
         location: "Sangli Resort Banquet, Dhanbad"

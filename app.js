@@ -478,7 +478,7 @@ function initRSVPAndWishes() {
     },
     {
       name: "Mrs. Annu Prasad & Mr. Uday Shankar Prasad",
-      message: "Dearest Muskan & Krishna, walking together in love and harmony, may your life be filled with laughter and prosperity.",
+      message: "Dearest Krishna & Muskan, walking together in love and harmony, may your life be filled with laughter and prosperity.",
       time: "Family Blessing"
     },
     {

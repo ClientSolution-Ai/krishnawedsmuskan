@@ -369,27 +369,27 @@ function initHomeScrollStory() {
       }
     }
 
-      // 6. ROYAL EVENTS SECTION ON MOBILE (0.76 to 0.94)
-      if (eventsSection) {
-        if (currentProgress < 0.74) {
-          eventsSection.style.opacity = "0";
-          eventsSection.style.visibility = "hidden";
-          eventsSection.style.pointerEvents = "none";
-          eventsSection.classList.remove("visible");
+    // 6. ROYAL EVENTS SECTION ON MOBILE (0.76 to 0.94)
+    if (eventsSection) {
+      if (currentProgress < 0.74) {
+        eventsSection.style.opacity = "0";
+        eventsSection.style.visibility = "hidden";
+        eventsSection.style.pointerEvents = "none";
+        eventsSection.classList.remove("visible");
+      } else {
+        const evOpacity = mapRange(currentProgress, 0.74, 0.92, 0, 1);
+        const evTranslateY = mapRange(currentProgress, 0.74, 0.92, 35, 0);
+        eventsSection.style.opacity = evOpacity.toFixed(3);
+        eventsSection.style.transform = `translateY(${evTranslateY.toFixed(1)}px)`;
+        eventsSection.style.visibility = "visible";
+        eventsSection.style.pointerEvents = evOpacity > 0.4 ? "auto" : "none";
+        if (evOpacity > 0.1) {
+          eventsSection.classList.add("visible");
         } else {
-          const evOpacity = mapRange(currentProgress, 0.74, 0.92, 0, 1);
-          const evTranslateY = mapRange(currentProgress, 0.74, 0.92, 35, 0);
-          eventsSection.style.opacity = evOpacity.toFixed(3);
-          eventsSection.style.transform = `translateY(${evTranslateY.toFixed(1)}px)`;
-          eventsSection.style.visibility = "visible";
-          eventsSection.style.pointerEvents = evOpacity > 0.4 ? "auto" : "none";
-          if (evOpacity > 0.1) {
-            eventsSection.classList.add("visible");
-          } else {
-            eventsSection.classList.remove("visible");
-          }
+          eventsSection.classList.remove("visible");
         }
       }
+    }
 
     requestAnimationFrame(renderFrame);
   }
@@ -800,15 +800,15 @@ function initHomeLanguageSystem() {
       btnLabel: lang === "en" ? "अ" : "EN",
       btnTitle: lang === "en" ? "हिंदी में देखें / View in Hindi" : "View in English / अंग्रेजी में देखें",
       scrollHint: lang === "en" ? "Scroll to Unveil" : "दर्शन हेतु स्क्रॉल करें",
-      bride: {
-        name: lang === "en" ? "Kumari Muskan" : "कुमारी मुस्कान",
-        kinship: lang === "en" ? "Daughter of" : "सुपुत्री",
-        parents: lang === "en" ? "Mrs. Annu Prasad & Mr. Uday Shankar Prasad" : "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
-      },
       groom: {
         name: lang === "en" ? "Krishna Kumar" : "कृष्ण कुमार",
         kinship: lang === "en" ? "Son of" : "सुपुत्र",
         parents: lang === "en" ? "Mrs. Kalyani Bid & Mr. Sukumar Bid" : "श्रीमती कल्याणी बिद एवं श्री सुकुमार बिद"
+      },
+      bride: {
+        name: lang === "en" ? "Kumari Muskan" : "कुमारी मुस्कान",
+        kinship: lang === "en" ? "Daughter of" : "सुपुत्री",
+        parents: lang === "en" ? "Mrs. Annu Prasad & Mr. Uday Shankar Prasad" : "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
       },
 
       countdown: {
@@ -1166,46 +1166,46 @@ function initEventsCardsSystem() {
 function handleAddToCalendar(eventId) {
   const eventsData = {
     haldi: {
-      title: "Haldi Ceremony - Muskan & Krishna Wedding",
+      title: "Haldi Ceremony - Krishna & Muskan Wedding",
       start: "20261124T100000",
       end: "20261124T130000",
-      location: "Aditya Banquet Hall, Hirak Road, Dhanbad",
-      description: "Auspicious Haldi Ceremony of Muskan & Krishna. Dress code: Festive Yellow."
+      location: "Aditya Banquet, Hirak Road, Dhanbad",
+      description: "Auspicious Haldi Ceremony of Krishna & Muskan. Dress code: Festive Yellow."
     },
     mehendi: {
-      title: "Mehendi Celebration - Muskan & Krishna Wedding",
+      title: "Mehendi Celebration - Krishna & Muskan Wedding",
       start: "20261124T160000",
       end: "20261124T193000",
-      location: "Aditya Banquet Hall, Hirak Road, Dhanbad",
-      description: "Mehendi & High Tea celebration of Muskan & Krishna. Dress code: Emerald Green & Floral."
+      location: "Aditya Banquet, Hirak Road, Dhanbad",
+      description: "Mehendi & High Tea celebration of Krishna & Muskan. Dress code: Emerald Green & Floral."
     },
     sangeet: {
-      title: "Sangeet Night - Muskan & Krishna Wedding",
+      title: "Sangeet Night - Krishna & Muskan Wedding",
       start: "20261124T200000",
       end: "20261125T010000",
-      location: "Aditya Banquet Hall, Hirak Road, Dhanbad",
-      description: "Sangeet Night & dinner of Muskan & Krishna. Dress code: Glamorous Indo-Western."
+      location: "Sangli Resort, Dhanbad",
+      description: "Sangeet Night & dinner of Krishna & Muskan. Dress code: Glamorous Indo-Western."
     },
     barat: {
-      title: "Shubh Vivah - Muskan & Krishna Wedding",
+      title: "Shubh Vivah - Krishna & Muskan Wedding",
       start: "20261125T163000",
       end: "20261125T235900",
       location: "Sangli Resort Mandap, Dhanbad",
-      description: "Baraat, Varmala & Sacred Pheras of Muskan & Krishna. Shubh Vivah."
+      description: "Baraat, Varmala & Sacred Pheras of Krishna & Muskan. Shubh Vivah."
     },
     DINNER: {
-      title: "DINNER - Muskan & Krishna",
+      title: "DINNER - Krishna & Muskan",
       start: "20261125T193000",
       end: "20261125T235900",
       location: "Sangli Resort Banquet, Dhanbad",
-      description: "DINNER & Feast of Muskan & Krishna."
+      description: "DINNER & Feast of Krishna & Muskan."
     },
     blessings: {
-      title: "Mangal Ashirwad & Blessings - Muskan & Krishna Wedding",
+      title: "Mangal Ashirwad & Blessings - Krishna & Muskan Wedding",
       start: "20261125T100000",
       end: "20261125T235900",
       location: "Sangli Resort Dhanbad",
-      description: "Family Blessings & Divine Prayers with Bid Parivar for Muskan & Krishna."
+      description: "Family Blessings & Divine Prayers with Bid Parivar for Krishna & Muskan."
     }
   };
 
