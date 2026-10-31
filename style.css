@@ -3922,17 +3922,17 @@ div::-webkit-scrollbar {
   background-color: #0c0104;
 }
 
-/* Atmospheric Sacred Background Layer (Windows Desktop: Royal Palace House) */
+/* Atmospheric Sacred Background Layer: Sacred Holy Agni (Havan Kund & Divine Fire) */
 .home-bg-backdrop {
   position: absolute;
   inset: -10px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
-  background-image: url('assets/images/royal_palace_entrance_bg.jpg');
+  background-image: url('assets/images/home_background.png');
   background-size: cover;
-  background-position: center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
-  filter: blur(0px) brightness(0.94) saturate(1.08);
+  filter: blur(0px) brightness(0.96) saturate(1.15);
   transform: scale(1.04);
   z-index: 1;
   pointer-events: none;
@@ -4173,13 +4173,13 @@ div::-webkit-scrollbar {
 }
 
 .groom-details-top {
-  margin-bottom: -15px;
-  transform: translateY(-25px);
+  margin: 0;
+  transform: none;
 }
 
 .bride-details-bottom {
-  margin-top: -15px;
-  transform: translateY(25px);
+  margin: 0;
+  transform: none;
 }
 
 /* Floating Scroll Unveil Hint */
@@ -4333,6 +4333,7 @@ div::-webkit-scrollbar {
   .home-bg-backdrop {
     background-image: url('assets/images/home_background.png');
     background-position: center bottom;
+    background-size: cover;
     filter: blur(0px) brightness(0.96) saturate(1.15);
   }
 
@@ -4424,6 +4425,7 @@ div::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: clamp(8px, 1.8vh, 16px);
   }
 
   /* Mobile Screen 3: Divine Ganesha + Countdown Timer */
@@ -4449,39 +4451,73 @@ div::-webkit-scrollbar {
   }
 
   .home-center-wrapper {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
-    max-height: clamp(180px, 30vh, 280px);
+    height: auto;
     flex: 0 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2px 0;
     will-change: opacity, transform;
   }
 
   .home-center-img {
     width: auto;
-    max-width: clamp(170px, 56vw, 240px);
+    max-width: clamp(125px, 36vw, 175px);
     height: auto;
-    max-height: clamp(170px, 28vh, 240px);
+    max-height: clamp(125px, 20vh, 175px);
     aspect-ratio: 1 / 1;
-    border-radius: 18px;
+    border-radius: 16px;
     border: 1.5px solid rgba(249, 228, 150, 0.65);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.88), 0 0 20px rgba(229, 169, 59, 0.35);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.88), 0 0 18px rgba(229, 169, 59, 0.35);
     object-fit: contain;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 16px rgba(249, 228, 150, 0.35));
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 14px rgba(249, 228, 150, 0.35));
   }
 
   .person-details-section {
     will-change: opacity, transform, filter;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
   }
 
   .groom-details-top {
-    margin-bottom: -4px;
+    margin: 0;
   }
 
   .bride-details-bottom {
-    margin-top: -4px;
+    margin: 0;
+  }
+
+  .calligraphy-royal-name {
+    font-size: clamp(1.85rem, 3.8vh, 2.45rem);
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .kinship-label {
+    font-size: clamp(0.78rem, 1.4vh, 0.92rem);
+    margin: 2px 0 1px 0;
+  }
+
+  .parents-names {
+    font-size: clamp(0.82rem, 1.5vh, 1.0rem);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  body.lang-hindi .calligraphy-royal-name {
+    font-size: clamp(1.8rem, 3.8vh, 2.4rem);
+  }
+
+  body.lang-hindi .kinship-label {
+    font-size: clamp(0.85rem, 1.5vh, 1.05rem);
+  }
+
+  body.lang-hindi .parents-names {
+    font-size: clamp(0.84rem, 1.5vh, 1.05rem);
   }
 
   /* Mobile Countdown Banner Styling (Bigger & Clearer) */
